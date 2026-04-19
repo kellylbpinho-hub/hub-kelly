@@ -1,0 +1,2932 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hub de Projetos · Kelly Almeida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-avatar">K</div>
+      <div class="brand-info">
+        <span class="brand-name">Kelly Almeida</span>
+        <span class="brand-role">Central de Projetos</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-view="overview">
+        <i class="fas fa-th-large"></i>
+        <span>Visão Geral</span>
+      </button>
+      <button class="nav-item" data-view="priorities">
+        <i class="fas fa-fire"></i>
+        <span>Prioridades</span>
+      </button>
+
+      <button class="nav-item" data-view="onboarding">
+        <i class="fas fa-rocket"></i>
+        <span>Ativar o App</span>
+        <span class="nav-badge active-badge">Setup</span>
+      </button>
+
+      <button class="nav-item" data-view="demo">
+        <i class="fas fa-play-circle"></i>
+        <span>Roteiro de Demo</span>
+        <span class="nav-badge" style="background:rgba(99,102,241,0.2);color:#818cf8">5 min</span>
+      </button>
+
+      <button class="nav-item" data-view="corrigir">
+        <i class="fas fa-wrench"></i>
+        <span>Corrigir o App</span>
+        <span class="nav-badge" style="background:rgba(239,68,68,0.22);color:#f87171;border:1px solid rgba(239,68,68,0.3)">Fix</span>
+      </button>
+
+      <button class="nav-item" data-view="perfis">
+        <i class="fas fa-user-shield"></i>
+        <span>Perfis &amp; Senhas</span>
+      </button>
+
+      <button class="nav-item" data-view="prompts">
+        <i class="fas fa-code"></i>
+        <span>Prompts Lovable</span>
+      </button>
+
+      <div class="nav-section-label">Projetos</div>
+
+      <button class="nav-item project-nav" data-view="yassuo" data-color="yassuo">
+        <span class="nav-dot" style="background:#ef4444"></span>
+        <span>Yassuo</span>
+        <span class="nav-badge active-badge">Ativo</span>
+      </button>
+      <button class="nav-item project-nav" data-view="revesttudo" data-color="revesttudo">
+        <span class="nav-dot" style="background:#f97316"></span>
+        <span>Revest Tudo</span>
+        <span class="nav-badge next-badge">Próximo</span>
+      </button>
+      <button class="nav-item project-nav" data-view="zevendas" data-color="zevendas">
+        <span class="nav-dot" style="background:#3b82f6"></span>
+        <span>Zé Vendas</span>
+      </button>
+      <button class="nav-item project-nav" data-view="aime" data-color="aime">
+        <span class="nav-dot" style="background:#a855f7"></span>
+        <span>Aime Komatsu</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="date-display" id="dateDisplay"></div>
+    </div>
+  </aside>
+
+  <!-- MOBILE TOP BAR -->
+  <header class="mobile-topbar">
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <span class="mobile-title" id="mobileTitle">Visão Geral</span>
+    <div class="mobile-avatar">K</div>
+  </header>
+
+  <!-- OVERLAY -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- ===== OVERVIEW VIEW ===== -->
+    <section class="view active" id="view-overview">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow">Central de Controle</p>
+          <h1 class="page-title">Mapa de Projetos</h1>
+          <p class="page-subtitle">4 projetos ativos · 1 em foco principal agora</p>
+        </div>
+        <button class="btn-primary" onclick="navigateTo('priorities')">
+          <i class="fas fa-fire"></i> Prioridades
+        </button>
+      </div>
+
+      <!-- GUIA RÁPIDO -->
+      <div class="guide-banner">
+        <div class="guide-title"><i class="fas fa-map-signs"></i> Como usar este hub</div>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <div class="guide-num">1</div>
+            <div class="guide-text"><strong>Este hub</strong> é seu centro de controle. Fica aqui, no navegador.</div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-num">2</div>
+            <div class="guide-text"><strong>O Lovable</strong> é onde o Yassuo (o app) vive. É outra aba do navegador.</div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-num">3</div>
+            <div class="guide-text">Vá em <strong>Prompts Lovable</strong> no menu, copie o prompt do módulo atual e cole no Lovable.</div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-num">4</div>
+            <div class="guide-text">Após o Lovable terminar, volte aqui para ver o que vem a seguir.</div>
+          </div>
+        </div>
+        <button class="guide-cta" onclick="navigateTo('prompts')">
+          <i class="fas fa-code"></i> Ver Prompts Lovable
+        </button>
+      </div>
+
+      <!-- FOCO AGORA -->
+      <div class="focus-banner" onclick="navigateTo('yassuo')">
+        <div class="focus-left">
+          <span class="focus-tag" style="color:#22c55e">🏆 APP CONCLUÍDO</span>
+          <h2 class="focus-title">Yassuo</h2>
+          <p class="focus-desc">Todos os módulos refinados · Design system unificado · Pronto para apresentação</p>
+        </div>
+        <div class="focus-right">
+          <div class="focus-progress-ring">
+            <svg viewBox="0 0 56 56">
+              <circle cx="28" cy="28" r="24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="4"/>
+              <circle cx="28" cy="28" r="24" fill="none" stroke="#ef4444" stroke-width="4"
+                stroke-dasharray="150.8" stroke-dashoffset="75" stroke-linecap="round"
+                transform="rotate(-90 28 28)"/>
+            </svg>
+            <span>50%</span>
+          </div>
+          <i class="fas fa-chevron-right focus-arrow"></i>
+        </div>
+      </div>
+
+      <!-- GRID DE PROJETOS -->
+      <div class="projects-grid">
+
+        <div class="project-card" data-project="yassuo" onclick="navigateTo('yassuo')">
+          <div class="card-accent yassuo-accent"></div>
+          <div class="card-header">
+            <div class="card-icon yassuo-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-title">Yassuo</h3>
+              <span class="card-category">App · Tecnologia</span>
+            </div>
+            <span class="status-badge status-active">Em andamento</span>
+          </div>
+          <p class="card-desc">Plataforma de gestão para cozinhas industriais. Dark premium, módulo Nutri em refinamento, Painel CEO.</p>
+          <div class="card-tags">
+            <span class="tag tag-red">Prioridade Máxima</span>
+            <span class="tag tag-gray">Lovable · Supabase</span>
+          </div>
+          <div class="card-footer">
+            <div class="next-step">
+              <i class="fas fa-arrow-right"></i>
+              <span>Validar Cardápio Semanal</span>
+            </div>
+            <div class="card-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:98%; background:#ef4444"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-project="revesttudo" onclick="navigateTo('revesttudo')">
+          <div class="card-accent revesttudo-accent"></div>
+          <div class="card-header">
+            <div class="card-icon revesttudo-icon">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-title">Revest Tudo</h3>
+              <span class="card-category">Negócio · Comercial</span>
+            </div>
+            <span class="status-badge status-next">Próximo</span>
+          </div>
+          <p class="card-desc">Revestimento técnico vinílico em Belém. Tese aceita pelo investidor. CAPEX R$150–250k · Margem 60–75%.</p>
+          <div class="card-tags">
+            <span class="tag tag-orange">Alta Prioridade</span>
+            <span class="tag tag-gray">Investidor ✓</span>
+          </div>
+          <div class="card-footer">
+            <div class="next-step">
+              <i class="fas fa-arrow-right"></i>
+              <span>Abrir plano operacional</span>
+            </div>
+            <div class="card-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:25%; background:#f97316"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-project="zevendas" onclick="navigateTo('zevendas')">
+          <div class="card-accent zevendas-accent"></div>
+          <div class="card-header">
+            <div class="card-icon zevendas-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-title">Zé Vendas</h3>
+              <span class="card-category">App · CRM Comercial</span>
+            </div>
+            <span class="status-badge status-building">Estruturando</span>
+          </div>
+          <p class="card-desc">App de rotina comercial para representante autônoma. Carteira, prospecção, follow-up e WhatsApp integrado.</p>
+          <div class="card-tags">
+            <span class="tag tag-blue">Alta Estrutural</span>
+            <span class="tag tag-gray">React · Supabase</span>
+          </div>
+          <div class="card-footer">
+            <div class="next-step">
+              <i class="fas fa-arrow-right"></i>
+              <span>Corrigir importação CSV</span>
+            </div>
+            <div class="card-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:30%; background:#3b82f6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-project="aime" onclick="navigateTo('aime')">
+          <div class="card-accent aime-accent"></div>
+          <div class="card-header">
+            <div class="card-icon aime-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="card-meta">
+              <h3 class="card-title">Aime Komatsu</h3>
+              <span class="card-category">Marca · Branding Afetivo</span>
+            </div>
+            <span class="status-badge status-concept">Conceito</span>
+          </div>
+          <p class="card-desc">"Amor em forma de presente." Marca emocional com potencial criativo. Nome forte. Produto ainda em definição.</p>
+          <div class="card-tags">
+            <span class="tag tag-purple">Média Prioridade</span>
+            <span class="tag tag-gray">Conceito definido</span>
+          </div>
+          <div class="card-footer">
+            <div class="next-step">
+              <i class="fas fa-arrow-right"></i>
+              <span>Definir linha de produto</span>
+            </div>
+            <div class="card-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:10%; background:#a855f7"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== PRIORITIES VIEW ===== -->
+    <section class="view" id="view-priorities">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow">Quadro de Prioridades</p>
+          <h1 class="page-title">O que fazer agora</h1>
+          <p class="page-subtitle">Sequência real · Sem dispersão</p>
+        </div>
+      </div>
+
+      <div class="priority-columns">
+
+        <div class="priority-col">
+          <div class="priority-col-header now-header">
+            <i class="fas fa-bolt"></i>
+            <span>Agora</span>
+            <span class="col-count">4</span>
+          </div>
+          <div class="priority-items">
+            <div class="priority-item" onclick="navigateTo('yassuo')">
+              <div class="priority-dot dot-red"></div>
+              <div class="priority-content">
+                <span class="priority-project">Yassuo</span>
+                <span class="priority-task">Validar Cardápio Semanal visualmente</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('yassuo')">
+              <div class="priority-dot dot-red"></div>
+              <div class="priority-content">
+                <span class="priority-project">Yassuo · Nutri</span>
+                <span class="priority-task">Propagar padrão para Pratos, Dashboard, Insumos</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('yassuo')">
+              <div class="priority-dot dot-red"></div>
+              <div class="priority-content">
+                <span class="priority-project">Yassuo</span>
+                <span class="priority-task">Alinhar Nutri com Painel CEO</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('yassuo')">
+              <div class="priority-dot dot-orange"></div>
+              <div class="priority-content">
+                <span class="priority-project">Yassuo</span>
+                <span class="priority-task">Organizar narrativa comercial e apresentação</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="priority-col">
+          <div class="priority-col-header next-header">
+            <i class="fas fa-arrow-right"></i>
+            <span>Próximo</span>
+            <span class="col-count">5</span>
+          </div>
+          <div class="priority-items">
+            <div class="priority-item" onclick="navigateTo('revesttudo')">
+              <div class="priority-dot dot-orange"></div>
+              <div class="priority-content">
+                <span class="priority-project">Revest Tudo</span>
+                <span class="priority-task">Fechar shortlist de aplicadores</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('revesttudo')">
+              <div class="priority-dot dot-orange"></div>
+              <div class="priority-content">
+                <span class="priority-project">Revest Tudo</span>
+                <span class="priority-task">Criar tabela de preços com mão de obra</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('revesttudo')">
+              <div class="priority-dot dot-orange"></div>
+              <div class="priority-content">
+                <span class="priority-project">Revest Tudo</span>
+                <span class="priority-task">Definir mix dos 10 rolos iniciais</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('revesttudo')">
+              <div class="priority-dot dot-orange"></div>
+              <div class="priority-content">
+                <span class="priority-project">Revest Tudo</span>
+                <span class="priority-task">Desenhar canal de venda via empresa</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('revesttudo')">
+              <div class="priority-dot dot-yellow"></div>
+              <div class="priority-content">
+                <span class="priority-project">Revest Tudo</span>
+                <span class="priority-task">Organizar pipeline com arquitetos</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="priority-col">
+          <div class="priority-col-header future-header">
+            <i class="fas fa-clock"></i>
+            <span>Em Espera</span>
+            <span class="col-count">5</span>
+          </div>
+          <div class="priority-items">
+            <div class="priority-item" onclick="navigateTo('zevendas')">
+              <div class="priority-dot dot-blue"></div>
+              <div class="priority-content">
+                <span class="priority-project">Zé Vendas</span>
+                <span class="priority-task">Corrigir importação CSV + deduplicar</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('zevendas')">
+              <div class="priority-dot dot-blue"></div>
+              <div class="priority-content">
+                <span class="priority-project">Zé Vendas</span>
+                <span class="priority-task">Ativar botões de segmentação</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('zevendas')">
+              <div class="priority-dot dot-blue"></div>
+              <div class="priority-content">
+                <span class="priority-project">Zé Vendas</span>
+                <span class="priority-task">Montar tela "Hoje" e rotina diária</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('aime')">
+              <div class="priority-dot dot-purple"></div>
+              <div class="priority-content">
+                <span class="priority-project">Aime Komatsu</span>
+                <span class="priority-task">Definir categoria e primeira linha</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+            <div class="priority-item" onclick="navigateTo('aime')">
+              <div class="priority-dot dot-purple"></div>
+              <div class="priority-content">
+                <span class="priority-project">Aime Komatsu</span>
+                <span class="priority-task">Posicionamento estético e identidade</span>
+              </div>
+              <i class="fas fa-chevron-right prio-arrow"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== YASSUO VIEW ===== -->
+    <section class="view" id="view-yassuo">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow" style="color:#ef4444">🎯 Foco Principal</p>
+          <h1 class="page-title">Yassuo</h1>
+          <p class="page-subtitle">Gestão para cozinhas industriais · Dark premium · Módulo Nutri em refinamento</p>
+        </div>
+        <span class="status-badge-lg status-active">Em andamento</span>
+      </div>
+
+      <!-- MÉTRICAS -->
+      <div class="metrics-row">
+        <div class="metric-card">
+          <i class="fas fa-desktop metric-icon" style="color:#ef4444"></i>
+          <div>
+            <div class="metric-value">28</div>
+            <div class="metric-label">Telas funcionais</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <i class="fas fa-users metric-icon" style="color:#ef4444"></i>
+          <div>
+            <div class="metric-value">7</div>
+            <div class="metric-label">Perfis de acesso</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <i class="fas fa-building metric-icon" style="color:#ef4444"></i>
+          <div>
+            <div class="metric-value">Multi</div>
+            <div class="metric-label">Tenant pronto</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <i class="fas fa-chart-line metric-icon" style="color:#ef4444"></i>
+          <div>
+            <div class="metric-value">98%</div>
+            <div class="metric-label">Progresso geral</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MÓDULOS -->
+      <div class="section-title-row">
+        <h2 class="section-title">Módulos do App</h2>
+      </div>
+
+      <div class="modules-grid">
+
+        <div class="module-card module-focus">
+          <div class="module-header">
+            <i class="fas fa-leaf module-icon" style="color:#22c55e"></i>
+            <div>
+              <h3 class="module-name">Nutri</h3>
+              <span class="module-status status-done-sm">✅ Todos os módulos refinados</span>
+            </div>
+          </div>
+          <p class="module-desc">Todas as 6 telas redesenhadas com identidade Yassuo. Cardápio, Painel, Pratos, Insumos, Pedido e Desperdício — 100% prontos.</p>
+          <div class="module-subs">
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>Cardápio Semanal</span>
+            </div>
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>Painel da Nutri</span>
+            </div>
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>Pratos / Biblioteca</span>
+            </div>
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>Planejamento Insumos</span>
+            </div>
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>Pedido Interno</span>
+            </div>
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>Desperdício</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <i class="fas fa-crown module-icon" style="color:#ef4444"></i>
+            <div>
+              <h3 class="module-name">Painel CEO</h3>
+              <span class="module-status status-done-sm">Refinado</span>
+            </div>
+          </div>
+          <p class="module-desc">Centro executivo com KPIs, alertas críticos, radar financeiro e custo real da refeição.</p>
+          <div class="module-subs">
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>KPIs hero</span>
+            </div>
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>AlertCenter refinado</span>
+            </div>
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>Radar financeiro</span>
+            </div>
+            <div class="sub-item sub-done">
+              <i class="fas fa-check"></i>
+              <span>Identidade Yassuo aplicada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <i class="fas fa-boxes module-icon" style="color:#22c55e"></i>
+            <div>
+              <h3 class="module-name">Estoque</h3>
+              <span class="module-status status-done-sm">Refinado</span>
+            </div>
+          </div>
+          <p class="module-desc">KPIs com glow, badge FEFO por lote, accent stripe por status, banner de ruptura, previsão de pedido.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <i class="fas fa-clipboard-list module-icon" style="color:#22c55e"></i>
+            <div>
+              <h3 class="module-name">Pedidos · 3 módulos</h3>
+              <span class="module-status status-done-sm">Refinado</span>
+            </div>
+          </div>
+          <p class="module-desc">Meus Pedidos, Aprovações CD e Compras — badges, KPIs, ações inline e empty states consistentes.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <i class="fas fa-barcode module-icon" style="color:#22c55e"></i>
+            <div>
+              <h3 class="module-name">Recebimento</h3>
+              <span class="module-status status-done-sm">Refinado</span>
+            </div>
+          </div>
+          <p class="module-desc">ScannerLauncher mobile-first, 4 KPIs, cards recentes, empty state premium — lógica preservada.</p>
+        </div>
+
+      </div>
+
+      <!-- TRILHA DE EXECUÇÃO -->
+      <div class="section-title-row" style="margin-top:2rem">
+        <h2 class="section-title">Trilha de Execução</h2>
+      </div>
+      <div class="roadmap">
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído</span>
+            <p class="roadmap-text">Direção visual premium aplicada — dark mode, vermelho institucional, design tokens</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído</span>
+            <p class="roadmap-text">Cardápio Semanal — lista vertical de dias expansíveis, status derivados, empty state premium</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído</span>
+            <p class="roadmap-text">Painel da Nutri — hero "Comando da Cozinha", KPIs, Centro de Ação, cards de semana/estoque/validade</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído</span>
+            <p class="roadmap-text">Pratos — biblioteca viva com cards ricos, filtros, custo estimado e ações rápidas</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído</span>
+            <p class="roadmap-text">Planejamento de Insumos — tela-consequência com KPIs, cobertura por categoria e geração de pedido</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído</span>
+            <p class="roadmap-text">Pedido Interno — hero vermelho, autocomplete, cards por categoria, CartSummaryBar fixa</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído · Nutri fechada</span>
+            <p class="roadmap-text">Desperdício — hero KPI, tendência 6 semanas, recorrência, breakdown por categoria, top 5 itens</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído</span>
+            <p class="roadmap-text">Estoque — 4 KPIs com glow, FEFO por lote, ruptura banner, previsão de pedido</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído</span>
+            <p class="roadmap-text">Pedidos — 3 módulos: Meus Pedidos, Aprovações CD e Compras com badges, KPIs e ações inline</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-done">
+          <div class="roadmap-marker done-marker"><i class="fas fa-check"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label done-label">Concluído</span>
+            <p class="roadmap-text">Recebimento — ScannerLauncher mobile-first, 4 KPIs, cards recentes, empty state premium</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-active">
+          <div class="roadmap-marker active-marker" style="background:#f97316;box-shadow:0 0 16px rgba(249,115,22,0.5)"><i class="fas fa-flag-checkered"></i></div>
+          <div class="roadmap-content">
+            <span class="roadmap-label" style="color:#f97316;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em">🏆 Último passo</span>
+            <p class="roadmap-text">Revisão Geral de Coerência — verificar inconsistências, garantir identidade unificada e preparar para apresentação</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REVEST TUDO VIEW ===== -->
+    <section class="view" id="view-revesttudo">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow" style="color:#f97316">Negócio · Comercial</p>
+          <h1 class="page-title">Revest Tudo</h1>
+          <p class="page-subtitle">Revestimento técnico vinílico · Tese aceita pelo investidor</p>
+        </div>
+        <span class="status-badge-lg status-next">Próximo</span>
+      </div>
+
+      <!-- FINANCIALS -->
+      <div class="metrics-row">
+        <div class="metric-card">
+          <i class="fas fa-dollar-sign metric-icon" style="color:#f97316"></i>
+          <div>
+            <div class="metric-value">R$150–250k</div>
+            <div class="metric-label">CAPEX previsto</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <i class="fas fa-calendar-check metric-icon" style="color:#f97316"></i>
+          <div>
+            <div class="metric-value">10–14m</div>
+            <div class="metric-label">Payback estimado</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <i class="fas fa-chart-pie metric-icon" style="color:#f97316"></i>
+          <div>
+            <div class="metric-value">60–75%</div>
+            <div class="metric-label">Margem bruta</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <i class="fas fa-check-circle metric-icon" style="color:#22c55e"></i>
+          <div>
+            <div class="metric-value">Aceito</div>
+            <div class="metric-label">Status do investidor</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title-row">
+        <h2 class="section-title">Frentes Operacionais</h2>
+      </div>
+
+      <div class="frentes-list">
+        <div class="frente-item frente-alta">
+          <div class="frente-priority">Alta</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-people-carry"></i> Rede de Aplicadores</h4>
+            <p class="frente-desc">Imprimax não entregou lista. Construir rede própria via Google Maps, Instagram e parceiros em Belém/Ananindeua.</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Montar shortlist, portfólio e faixa de preço</div>
+          </div>
+        </div>
+        <div class="frente-item frente-alta">
+          <div class="frente-priority">Alta</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-tags"></i> Precificação com Mão de Obra</h4>
+            <p class="frente-desc">Benchmark feito: R$80–150/m² instalado em Belém. Mão de obra R$20–50/m². Automotivo: R$3k–5k (hatch) a R$8k–15k (SUV).</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Fechar tabela piloto com 3 cotações</div>
+          </div>
+        </div>
+        <div class="frente-item frente-alta">
+          <div class="frente-priority">Alta</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-building"></i> Venda via Empresa (CNPJ)</h4>
+            <p class="frente-desc">Validado: a restrição está no CPF, não no CNPJ. Canal de venda é viável pela empresa.</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Documentar fluxo comercial e financeiro</div>
+          </div>
+        </div>
+        <div class="frente-item frente-alta">
+          <div class="frente-priority">Alta</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-boxes"></i> Estoque Inicial</h4>
+            <p class="frente-desc">Decisão: começar com 10 rolos. Mix por linha, cor e perfil ainda a definir.</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Definir composição dos 10 rolos</div>
+          </div>
+        </div>
+        <div class="frente-item frente-media">
+          <div class="frente-priority frente-priority-media">Média</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-hard-hat"></i> Relacionamento com Arquitetos</h4>
+            <p class="frente-desc">Canal relacional ativo. Kelly já está no grupo e já conversou com vários.</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Organizar pipeline de nomes, perfis e estágio</div>
+          </div>
+        </div>
+        <div class="frente-item frente-media">
+          <div class="frente-priority frente-priority-media">Média</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-store"></i> Showroom + Marketing + Mobile Studio</h4>
+            <p class="frente-desc">Estratégia de expansão: showroom em Belém → digital → Mobile Studio → norte do Brasil.</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Detalhar após estrutura operacional base</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ZÉ VENDAS VIEW ===== -->
+    <section class="view" id="view-zevendas">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow" style="color:#3b82f6">App · CRM Comercial</p>
+          <h1 class="page-title">Zé Vendas</h1>
+          <p class="page-subtitle">Rotina comercial para representante autônoma · Pará</p>
+        </div>
+        <span class="status-badge-lg status-building">Estruturando</span>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-card">
+          <i class="fas fa-users metric-icon" style="color:#3b82f6"></i>
+          <div>
+            <div class="metric-value">261</div>
+            <div class="metric-label">Clientes mapeados</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <i class="fas fa-industry metric-icon" style="color:#3b82f6"></i>
+          <div>
+            <div class="metric-value">3</div>
+            <div class="metric-label">Marcas (Kapazi, Forte, Imprimax)</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <i class="fas fa-comment-dots metric-icon" style="color:#3b82f6"></i>
+          <div>
+            <div class="metric-value">5</div>
+            <div class="metric-label">Templates WhatsApp</div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <i class="fas fa-exclamation-triangle metric-icon" style="color:#fbbf24"></i>
+          <div>
+            <div class="metric-value">6</div>
+            <div class="metric-label">Pendências críticas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title-row">
+        <h2 class="section-title">Backlog Priorizado</h2>
+      </div>
+
+      <div class="backlog-section">
+        <div class="backlog-group">
+          <div class="backlog-group-header bg-red-header">
+            <i class="fas fa-fire"></i> Alta Prioridade
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-red"></span>
+            <span class="backlog-text">Corrigir importação CSV dos 261 clientes</span>
+            <span class="backlog-tag tag-red">Crítico</span>
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-red"></span>
+            <span class="backlog-text">Exibir botões de segmentação por marca/nicho</span>
+            <span class="backlog-tag tag-red">Crítico</span>
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-red"></span>
+            <span class="backlog-text">Estabilizar Search-Places (Google Maps)</span>
+            <span class="backlog-tag tag-red">Crítico</span>
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-red"></span>
+            <span class="backlog-text">Deduplicar leads da carteira</span>
+            <span class="backlog-tag tag-red">Crítico</span>
+          </div>
+        </div>
+        <div class="backlog-group">
+          <div class="backlog-group-header bg-yellow-header">
+            <i class="fas fa-layer-group"></i> Média Prioridade
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-yellow"></span>
+            <span class="backlog-text">Tela "Hoje" — rotina diária de contatos</span>
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-yellow"></span>
+            <span class="backlog-text">Bottom navigation mobile</span>
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-yellow"></span>
+            <span class="backlog-text">Cards mobile-first para carteira</span>
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-yellow"></span>
+            <span class="backlog-text">Linguagem do vendedor (microcopy)</span>
+          </div>
+        </div>
+        <div class="backlog-group">
+          <div class="backlog-group-header bg-gray-header">
+            <i class="fas fa-clock"></i> Baixa Prioridade
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-gray"></span>
+            <span class="backlog-text">Integração WhatsApp Business API</span>
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-gray"></span>
+            <span class="backlog-text">Modo offline</span>
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-gray"></span>
+            <span class="backlog-text">Relatórios por marca</span>
+          </div>
+          <div class="backlog-item">
+            <span class="backlog-dot dot-gray"></span>
+            <span class="backlog-text">Sincronização Google Sheets</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AIME KOMATSU VIEW ===== -->
+    <section class="view" id="view-aime">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow" style="color:#a855f7">Marca · Branding Afetivo</p>
+          <h1 class="page-title">Aime Komatsu</h1>
+          <p class="page-subtitle">"Amor em forma de presente"</p>
+        </div>
+        <span class="status-badge-lg status-concept">Conceito</span>
+      </div>
+
+      <div class="aime-hero">
+        <div class="aime-symbol">♡</div>
+        <blockquote class="aime-quote">"Amor em forma de presente"</blockquote>
+        <p class="aime-subdesc">Uma marca emocional com potencial criativo forte. O nome é poderoso. O próximo passo é transformar conceito em produto.</p>
+      </div>
+
+      <div class="section-title-row">
+        <h2 class="section-title">Trilha de Construção da Marca</h2>
+      </div>
+
+      <div class="roadmap">
+        <div class="roadmap-item roadmap-active">
+          <div class="roadmap-marker active-marker" style="background:#a855f7">1</div>
+          <div class="roadmap-content">
+            <span class="roadmap-label" style="color:#a855f7">Definir agora</span>
+            <p class="roadmap-text">Escolher a categoria de produto — o que vai ser vendido?</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-pending">
+          <div class="roadmap-marker pending-marker">2</div>
+          <div class="roadmap-content">
+            <span class="roadmap-label pending-label">A seguir</span>
+            <p class="roadmap-text">Criar a primeira coleção ou oferta inicial</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-pending">
+          <div class="roadmap-marker pending-marker">3</div>
+          <div class="roadmap-content">
+            <span class="roadmap-label pending-label">Depois</span>
+            <p class="roadmap-text">Definir posicionamento estético e identidade visual</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-pending">
+          <div class="roadmap-marker pending-marker">4</div>
+          <div class="roadmap-content">
+            <span class="roadmap-label pending-label">Depois</span>
+            <p class="roadmap-text">Recortar público-alvo e ocasião de compra</p>
+          </div>
+        </div>
+        <div class="roadmap-item roadmap-pending">
+          <div class="roadmap-marker pending-marker">5</div>
+          <div class="roadmap-content">
+            <span class="roadmap-label pending-label">Expansão</span>
+            <p class="roadmap-text">Estruturar canal inicial de venda</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="aime-note">
+        <i class="fas fa-lightbulb"></i>
+        <p>Esse projeto tem o nome certo e a emoção certa. O que ele precisa agora é de um produto concreto para ancorar a marca.</p>
+      </div>
+    </section>
+
+    <!-- ===== ONBOARDING VIEW ===== -->
+    <section class="view" id="view-onboarding">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow" style="color:#ef4444">Yassuo · Preparação para Demo</p>
+          <h1 class="page-title">Ativar o App</h1>
+          <p class="page-subtitle">O que precisa ser cadastrado · Na ordem certa · Antes da apresentação</p>
+        </div>
+      </div>
+
+      <!-- ALERTA DE DEPENDÊNCIA -->
+      <div class="onb-alert">
+        <i class="fas fa-link"></i>
+        <div>
+          <strong>Ordem importa.</strong> Cada cadastro depende do anterior. Pular etapas vai quebrar o fluxo da demo.
+          Siga a sequência exata abaixo.
+        </div>
+      </div>
+
+      <!-- BLOCOS DE CADASTRO -->
+      <div class="onb-phases">
+
+        <!-- FASE 1 -->
+        <div class="onb-phase">
+          <div class="onb-phase-header">
+            <div class="onb-phase-num">1</div>
+            <div>
+              <h3 class="onb-phase-title">Estrutura da empresa</h3>
+              <p class="onb-phase-sub">Base de tudo. Sem isso, nenhum outro cadastro funciona.</p>
+            </div>
+          </div>
+          <div class="onb-items">
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-building onb-icon" style="color:#ef4444"></i>
+                <div>
+                  <h4 class="onb-item-title">Empresa (company)</h4>
+                  <span class="onb-badge onb-badge-critical">Obrigatório</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Nome da empresa, CNPJ, configurações gerais. Já deve existir via Supabase Auth.</p>
+              <div class="onb-item-where"><i class="fas fa-map-marker-alt"></i> Supabase → tabela <code>companies</code></div>
+            </div>
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-map-marker-alt onb-icon" style="color:#ef4444"></i>
+                <div>
+                  <h4 class="onb-item-title">Unidades (cozinhas + CD)</h4>
+                  <span class="onb-badge onb-badge-critical">Obrigatório</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Cadastre pelo menos 1 cozinha e 1 CD (Central de Distribuição). Defina nome, tipo e número de colaboradores — esse número é usado para calcular per capita.</p>
+              <div class="onb-item-where"><i class="fas fa-map-marker-alt"></i> Configurações → Unidades</div>
+              <div class="onb-tip"><i class="fas fa-lightbulb"></i> Para demo: 1 cozinha com 50 colaboradores + 1 CD é suficiente.</div>
+            </div>
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-users onb-icon" style="color:#ef4444"></i>
+                <div>
+                  <h4 class="onb-item-title">Usuários e perfis</h4>
+                  <span class="onb-badge onb-badge-critical">Obrigatório</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Crie pelo menos 3 usuários com perfis diferentes para mostrar o controle de acesso na demo: CEO, Nutricionista e Estoquista.</p>
+              <div class="onb-item-where"><i class="fas fa-map-marker-alt"></i> Configurações → Acesso</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FASE 2 -->
+        <div class="onb-phase">
+          <div class="onb-phase-header">
+            <div class="onb-phase-num">2</div>
+            <div>
+              <h3 class="onb-phase-title">Fornecedores</h3>
+              <p class="onb-phase-sub">Todo pedido de compra precisa estar vinculado a um fornecedor. É a dependência mais crítica do módulo de Compras.</p>
+            </div>
+          </div>
+          <div class="onb-items">
+
+            <!-- ONDE CADASTRAR -->
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-map-signs onb-icon" style="color:#f97316"></i>
+                <div>
+                  <h4 class="onb-item-title">Onde cadastrar fornecedores</h4>
+                  <span class="onb-badge onb-badge-critical">Obrigatório</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">No Yassuo, fornecedores são cadastrados dentro do módulo de <strong>Compras</strong>. O caminho exato depende de como o Lovable estruturou o menu, mas siga esta ordem de busca:</p>
+              <div class="onb-where-list">
+                <div class="onb-where-item">
+                  <span class="onb-where-num">1º</span>
+                  <div><strong>Menu lateral → Compras → Fornecedores</strong><br><span class="onb-where-sub">Caminho mais comum. Procure "Fornecedores" como submenu de Compras.</span></div>
+                </div>
+                <div class="onb-where-item">
+                  <span class="onb-where-num">2º</span>
+                  <div><strong>Menu lateral → Configurações → Fornecedores</strong><br><span class="onb-where-sub">Alguns apps colocam fornecedores em configurações gerais.</span></div>
+                </div>
+                <div class="onb-where-item">
+                  <span class="onb-where-num">3º</span>
+                  <div><strong>Supabase → Tabela <code>suppliers</code></strong><br><span class="onb-where-sub">Se não houver tela no app, cadastre direto no Supabase. Abra o projeto → Table Editor → suppliers → Insert Row.</span></div>
+                </div>
+              </div>
+              <div class="onb-tip onb-tip-red"><i class="fas fa-exclamation-triangle"></i> <strong>Se não encontrar a tela:</strong> envie um prompt no Lovable pedindo para criar uma tela de cadastro de fornecedores em Compras → Fornecedores antes da demo.</div>
+            </div>
+
+            <!-- CAMPOS NECESSÁRIOS -->
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-clipboard-list onb-icon" style="color:#f97316"></i>
+                <div>
+                  <h4 class="onb-item-title">O que preencher em cada fornecedor</h4>
+                  <span class="onb-badge onb-badge-warning">Referência de campos</span>
+                </div>
+              </div>
+              <div class="onb-fields-grid">
+                <div class="onb-field onb-field-required">
+                  <span class="onb-field-label">Nome</span>
+                  <span class="onb-field-ex">Ex: Distribuidora Pará Alimentos</span>
+                  <span class="onb-field-req">Obrigatório</span>
+                </div>
+                <div class="onb-field onb-field-required">
+                  <span class="onb-field-label">CNPJ</span>
+                  <span class="onb-field-ex">Ex: 12.345.678/0001-99</span>
+                  <span class="onb-field-req">Obrigatório</span>
+                </div>
+                <div class="onb-field onb-field-recommended">
+                  <span class="onb-field-label">Categoria</span>
+                  <span class="onb-field-ex">Hortifruti / Proteínas / Secos / Laticínios</span>
+                  <span class="onb-field-rec">Recomendado</span>
+                </div>
+                <div class="onb-field onb-field-recommended">
+                  <span class="onb-field-label">Contato / Telefone</span>
+                  <span class="onb-field-ex">Ex: (91) 98765-4321</span>
+                  <span class="onb-field-rec">Recomendado</span>
+                </div>
+                <div class="onb-field onb-field-recommended">
+                  <span class="onb-field-label">E-mail</span>
+                  <span class="onb-field-ex">Ex: vendas@paraalimentos.com.br</span>
+                  <span class="onb-field-rec">Recomendado</span>
+                </div>
+                <div class="onb-field onb-field-optional">
+                  <span class="onb-field-label">Prazo de entrega (dias)</span>
+                  <span class="onb-field-ex">Ex: 2 dias úteis</span>
+                  <span class="onb-field-opt">Opcional</span>
+                </div>
+                <div class="onb-field onb-field-optional">
+                  <span class="onb-field-label">Observações</span>
+                  <span class="onb-field-ex">Ex: Entrega às terças e sextas</span>
+                  <span class="onb-field-opt">Opcional</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- EXEMPLO REAL PARA DEMO -->
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-star onb-icon" style="color:#f97316"></i>
+                <div>
+                  <h4 class="onb-item-title">3 fornecedores prontos para a demo</h4>
+                  <span class="onb-badge onb-badge-warning">Copiar e usar</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Use estes dados fictícios (ou substitua pelos reais) para popular o sistema antes da apresentação:</p>
+              <div class="onb-demo-suppliers">
+                <div class="onb-supplier-card">
+                  <div class="onb-supplier-icon"><i class="fas fa-leaf"></i></div>
+                  <div class="onb-supplier-info">
+                    <strong>Hortifruti Amazônia Ltda</strong>
+                    <span>Categoria: Hortifruti</span>
+                    <span>CNPJ: 11.222.333/0001-44</span>
+                    <span>Contato: (91) 3245-7890</span>
+                  </div>
+                </div>
+                <div class="onb-supplier-card">
+                  <div class="onb-supplier-icon"><i class="fas fa-drumstick-bite"></i></div>
+                  <div class="onb-supplier-info">
+                    <strong>Frigorífico Norte Proteínas</strong>
+                    <span>Categoria: Proteínas / Carnes</span>
+                    <span>CNPJ: 22.333.444/0001-55</span>
+                    <span>Contato: (91) 3678-1234</span>
+                  </div>
+                </div>
+                <div class="onb-supplier-card">
+                  <div class="onb-supplier-icon"><i class="fas fa-box"></i></div>
+                  <div class="onb-supplier-info">
+                    <strong>Distribuidora Pará Secos</strong>
+                    <span>Categoria: Secos e Grãos</span>
+                    <span>CNPJ: 33.444.555/0001-66</span>
+                    <span>Contato: (91) 3890-5678</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COMO FUNCIONA O VÍNCULO -->
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-project-diagram onb-icon" style="color:#f97316"></i>
+                <div>
+                  <h4 class="onb-item-title">Como o fornecedor se conecta ao resto do app</h4>
+                  <span class="onb-badge" style="background:rgba(99,102,241,0.15);color:#818cf8">Fluxo completo</span>
+                </div>
+              </div>
+              <div class="onb-flow">
+                <div class="onb-flow-step">
+                  <div class="onb-flow-icon" style="background:rgba(239,68,68,0.12);color:#ef4444"><i class="fas fa-truck"></i></div>
+                  <div class="onb-flow-text"><strong>Fornecedor</strong><br>Cadastrado em Compras</div>
+                </div>
+                <div class="onb-flow-arrow">→</div>
+                <div class="onb-flow-step">
+                  <div class="onb-flow-icon" style="background:rgba(249,115,22,0.12);color:#f97316"><i class="fas fa-clipboard-list"></i></div>
+                  <div class="onb-flow-text"><strong>Pedido de Compra</strong><br>Vinculado ao fornecedor</div>
+                </div>
+                <div class="onb-flow-arrow">→</div>
+                <div class="onb-flow-step">
+                  <div class="onb-flow-icon" style="background:rgba(59,130,246,0.12);color:#3b82f6"><i class="fas fa-check-circle"></i></div>
+                  <div class="onb-flow-text"><strong>Aprovação CD</strong><br>Estoquista confirma</div>
+                </div>
+                <div class="onb-flow-arrow">→</div>
+                <div class="onb-flow-step">
+                  <div class="onb-flow-icon" style="background:rgba(34,197,94,0.12);color:#22c55e"><i class="fas fa-barcode"></i></div>
+                  <div class="onb-flow-text"><strong>Recebimento</strong><br>Entrada no estoque FEFO</div>
+                </div>
+              </div>
+              <div class="onb-tip"><i class="fas fa-lightbulb"></i> Sem fornecedor cadastrado, o campo de seleção no pedido de compra fica vazio e o pedido não pode ser finalizado.</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FASE 3 -->
+        <div class="onb-phase">
+          <div class="onb-phase-header">
+            <div class="onb-phase-num">3</div>
+            <div>
+              <h3 class="onb-phase-title">Catálogo de produtos</h3>
+              <p class="onb-phase-sub">Insumos do estoque. Dependem das unidades já cadastradas.</p>
+            </div>
+          </div>
+          <div class="onb-items">
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-tags onb-icon" style="color:#3b82f6"></i>
+                <div>
+                  <h4 class="onb-item-title">Categorias de produto</h4>
+                  <span class="onb-badge onb-badge-warning">Recomendado</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Protéinas, Hortifruti, Grãos, Laticínios, Temperos, Descartáveis. Organiza o estoque e os relatórios.</p>
+              <div class="onb-item-where"><i class="fas fa-map-marker-alt"></i> Configurações → Categorias de Produto</div>
+            </div>
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-box onb-icon" style="color:#3b82f6"></i>
+                <div>
+                  <h4 class="onb-item-title">Produtos / Insumos</h4>
+                  <span class="onb-badge onb-badge-critical">Obrigatório</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Nome, marca, unidade de medida (kg, L, un), categoria, estoque mínimo e custo unitário. O custo é usado para calcular o <strong>custo real da refeição</strong> no Painel CEO.</p>
+              <div class="onb-item-where"><i class="fas fa-map-marker-alt"></i> Estoque → Novo Produto</div>
+              <div class="onb-tip"><i class="fas fa-lightbulb"></i> Para demo: cadastre 15–20 insumos reais (arroz, feijão, frango, óleo, sal...) com custos reais de mercado.</div>
+            </div>
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-layer-group onb-icon" style="color:#3b82f6"></i>
+                <div>
+                  <h4 class="onb-item-title">Lotes de estoque inicial</h4>
+                  <span class="onb-badge onb-badge-critical">Obrigatório para FEFO</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Cada produto precisa de pelo menos 1 lote com quantidade, data de validade e código. Sem lote, o FEFO não funciona e o estoque aparece zerado.</p>
+              <div class="onb-item-where"><i class="fas fa-map-marker-alt"></i> Recebimento Digital → Escanear ou Buscar Produto</div>
+              <div class="onb-tip onb-tip-red"><i class="fas fa-exclamation-triangle"></i> Importante: entrada de estoque só funciona via Recebimento, não por cadastro manual. É o fluxo correto do FEFO.</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FASE 4 -->
+        <div class="onb-phase">
+          <div class="onb-phase-header">
+            <div class="onb-phase-num">4</div>
+            <div>
+              <h3 class="onb-phase-title">Catálogo de pratos</h3>
+              <p class="onb-phase-sub">Depende dos produtos já cadastrados. A ficha técnica conecta prato → insumo → custo.</p>
+            </div>
+          </div>
+          <div class="onb-items">
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-utensils onb-icon" style="color:#a855f7"></i>
+                <div>
+                  <h4 class="onb-item-title">Categorias de prato</h4>
+                  <span class="onb-badge onb-badge-warning">Recomendado</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Entrada, Prato Principal, Guarnição, Salada, Sobremesa, Sopa. Organiza a biblioteca de pratos.</p>
+              <div class="onb-item-where"><i class="fas fa-map-marker-alt"></i> Nutri → Configurações de Categoria</div>
+            </div>
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-drumstick-bite onb-icon" style="color:#a855f7"></i>
+                <div>
+                  <h4 class="onb-item-title">Pratos + fichas técnicas</h4>
+                  <span class="onb-badge onb-badge-critical">Obrigatório</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Crie os pratos (nome, categoria, porção em g) e adicione os ingredientes de cada um com peso por per capita e fator de correção. Isso calcula o <strong>custo estimado por prato</strong> e gera a <strong>previsão de insumos</strong> automaticamente.</p>
+              <div class="onb-item-where"><i class="fas fa-map-marker-alt"></i> Nutri → Pratos → Criar Prato → Editar Ficha</div>
+              <div class="onb-tip"><i class="fas fa-lightbulb"></i> Para demo: cadastre 5–8 pratos reais com ficha completa. Arroz + feijão + frango grelhado + salada é suficiente para mostrar o fluxo completo.</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FASE 5 -->
+        <div class="onb-phase">
+          <div class="onb-phase-header">
+            <div class="onb-phase-num">5</div>
+            <div>
+              <h3 class="onb-phase-title">Cardápio da semana</h3>
+              <p class="onb-phase-sub">Depende dos pratos com ficha técnica. Ativa toda a cadeia operacional.</p>
+            </div>
+          </div>
+          <div class="onb-items">
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-calendar-week onb-icon" style="color:#22c55e"></i>
+                <div>
+                  <h4 class="onb-item-title">Cardápio semanal</h4>
+                  <span class="onb-badge onb-badge-critical">Obrigatório para demo</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Monte o cardápio da semana atual com os pratos cadastrados. Isso ativa automaticamente: <strong>Planejamento de Insumos</strong> (o que comprar), <strong>Custo real da refeição</strong> (Painel CEO) e <strong>KPIs da Nutri</strong>.</p>
+              <div class="onb-item-where"><i class="fas fa-map-marker-alt"></i> Nutri → Cardápio Semanal</div>
+              <div class="onb-tip"><i class="fas fa-lightbulb"></i> Monte pelo menos 3 dias da semana atual. Deixe 2 dias sem cardápio propositalmente para mostrar o alerta de "em montagem" no painel.</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FASE 6 -->
+        <div class="onb-phase">
+          <div class="onb-phase-header">
+            <div class="onb-phase-num">6</div>
+            <div>
+              <h3 class="onb-phase-title">Dados operacionais para a demo</h3>
+              <p class="onb-phase-sub">O que deixar pronto para impressionar. Não é obrigatório, mas faz diferença.</p>
+            </div>
+          </div>
+          <div class="onb-items">
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-exclamation-triangle onb-icon" style="color:#fbbf24"></i>
+                <div>
+                  <h4 class="onb-item-title">1 item de estoque crítico</h4>
+                  <span class="onb-badge onb-badge-warning">Para demo</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Deixe um produto com saldo abaixo do mínimo. Isso ativa o <strong>alerta vermelho no Painel CEO</strong> e o <strong>banner de ruptura no Estoque</strong> — mostra inteligência do sistema.</p>
+            </div>
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-calendar-times onb-icon" style="color:#fbbf24"></i>
+                <div>
+                  <h4 class="onb-item-title">1 lote com vencimento próximo</h4>
+                  <span class="onb-badge onb-badge-warning">Para demo</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Cadastre um lote com validade nos próximos 5 dias. Ativa o <strong>alerta de validade iminente no FEFO</strong> e no Painel da Nutri.</p>
+            </div>
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-clipboard-check onb-icon" style="color:#fbbf24"></i>
+                <div>
+                  <h4 class="onb-item-title">1 pedido de compra criado</h4>
+                  <span class="onb-badge onb-badge-warning">Para demo</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Gere um pedido pelo Planejamento de Insumos (1 clique). Mostra o fluxo completo: cardápio → previsão → pedido → aprovação.</p>
+            </div>
+
+            <div class="onb-item">
+              <div class="onb-item-header">
+                <i class="fas fa-trash-alt onb-icon" style="color:#fbbf24"></i>
+                <div>
+                  <h4 class="onb-item-title">2–3 registros de desperdício</h4>
+                  <span class="onb-badge onb-badge-warning">Para demo</span>
+                </div>
+              </div>
+              <p class="onb-item-desc">Registre alguns kg de desperdício em dias diferentes. Ativa o gráfico de tendência e o impacto financeiro estimado no painel.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RESUMO: GAPS IDENTIFICADOS -->
+      <div class="onb-gaps">
+        <div class="onb-gaps-title"><i class="fas fa-exclamation-circle"></i> Gaps identificados — verificar antes da demo</div>
+        <div class="onb-gap-item">
+          <span class="onb-gap-num">1</span>
+          <div>
+            <strong>Fornecedores</strong> — não está claro onde se cadastra no app. Todo pedido de compra é vinculado a um fornecedor. Se não houver tela, é o gap mais urgente a corrigir.
+          </div>
+        </div>
+        <div class="onb-gap-item">
+          <span class="onb-gap-num">2</span>
+          <div>
+            <strong>Entrada de estoque manual</strong> — o fluxo correto é via Recebimento Digital. Mas para a demo, pode ser necessário um atalho para popular o estoque inicial sem precisar simular todos os recebimentos.
+          </div>
+        </div>
+        <div class="onb-gap-item">
+          <span class="onb-gap-num">3</span>
+          <div>
+            <strong>Fator de correção nas fichas técnicas</strong> — campo técnico que a nutricionista precisa entender. Verificar se há explicação ou tooltip no app.
+          </div>
+        </div>
+      </div>
+
+      <!-- ORDEM RESUMIDA -->
+      <div class="onb-summary">
+        <div class="onb-summary-title">Ordem resumida de cadastro</div>
+        <div class="onb-summary-steps">
+          <div class="onb-summary-step"><span class="onb-step-n">1</span><span>Empresa + Unidades + Usuários</span></div>
+          <div class="onb-summary-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="onb-summary-step"><span class="onb-step-n">2</span><span>Fornecedores</span></div>
+          <div class="onb-summary-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="onb-summary-step"><span class="onb-step-n">3</span><span>Produtos + Lotes</span></div>
+          <div class="onb-summary-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="onb-summary-step"><span class="onb-step-n">4</span><span>Pratos + Fichas</span></div>
+          <div class="onb-summary-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="onb-summary-step"><span class="onb-step-n">5</span><span>Cardápio</span></div>
+          <div class="onb-summary-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="onb-summary-step onb-step-final"><span class="onb-step-n" style="background:#22c55e"><i class="fas fa-check"></i></span><span>Demo pronta</span></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== CORRIGIR O APP VIEW ===== -->
+    <section class="view" id="view-corrigir">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow" style="color:#ef4444">Yassuo · Gaps &amp; Fixes</p>
+          <h1 class="page-title">Corrigir o App</h1>
+          <p class="page-subtitle">Problemas identificados · Prompts prontos · Copie e cole no Lovable</p>
+        </div>
+      </div>
+
+      <div class="fix-intro">
+        <i class="fas fa-info-circle"></i>
+        <div>
+          Cada card abaixo é um problema real identificado no app. Cada um tem um <strong>prompt pronto para copiar e colar no Lovable</strong>. Resolva um de cada vez — valide antes de avançar.
+        </div>
+      </div>
+
+      <!-- FIX 1: FORNECEDORES -->
+      <div class="fix-card" style="border-left:3px solid #22c55e">
+        <div class="fix-card-header">
+          <div class="fix-badge" style="background:rgba(34,197,94,0.12);color:#4ade80;border:1px solid rgba(34,197,94,0.25)">
+            <i class="fas fa-check-circle"></i> Concluído no Lovable
+          </div>
+          <h3 class="fix-title">Fornecedores — tela criada ✅</h3>
+          <p class="fix-desc">A tela <code>/fornecedores</code> foi criada com sucesso: lista com busca e filtro ativo/arquivado, KPIs, formulário completo (nome, CNPJ, telefone, e-mail, categoria, condição de pagamento, observações) e empty state premium. Integrada ao Supabase com migração de campos novos.</p>
+          <div class="fix-impact" style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.15)">
+            <i class="fas fa-map-marker-alt" style="color:#4ade80"></i>
+            <span><strong style="color:#4ade80">Localização no app:</strong> Sidebar → grupo <strong>Administração → Fornecedores</strong>. Visível para CEO, Comprador e Financeiro. Bloqueado para Estoquista, Nutricionista e Cozinheiro.</span>
+          </div>
+        </div>
+        <div class="fix-prompt-wrap">
+          <div class="fix-prompt-label" style="color:#4ade80"><i class="fas fa-tasks"></i> Próximo passo — cadastrar fornecedores de demo</div>
+          <div class="fix-checklist">
+            <div class="fix-check-item">
+              <span class="fix-check-num">1</span>
+              <div>
+                <strong>Abrir o app</strong> → Administração → Fornecedores
+                <span class="fix-check-sub">Confirmar que a tela aparece e o botão "Novo Fornecedor" funciona</span>
+              </div>
+            </div>
+            <div class="fix-check-item">
+              <span class="fix-check-num">2</span>
+              <div>
+                <strong>Cadastrar 3 fornecedores de demo</strong> com dados reais ou fictícios
+                <span class="fix-check-sub">Sugestão: 1 de proteínas, 1 de hortifruti, 1 de descartáveis — categorias mais comuns</span>
+              </div>
+            </div>
+            <div class="fix-check-item">
+              <span class="fix-check-num">3</span>
+              <div>
+                <strong>Criar um pedido de compra</strong> e selecionar um dos fornecedores
+                <span class="fix-check-sub">Valida que o vínculo fornecedor → pedido está funcionando de ponta a ponta</span>
+              </div>
+            </div>
+          </div>
+          <div class="fix-note" style="margin-top:14px">
+            <i class="fas fa-lightbulb"></i>
+            <span>Campos adicionados via migração: <code>categoria</code>, <code>condicao_pagamento</code> e <code>observacao</code>. Os campos anteriores (<code>nome</code>, <code>cnpj</code>, <code>contato</code>, <code>telefone</code>, <code>email</code>, <code>ativo</code>) foram preservados — nenhum dado existente foi perdido.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FIX 2: ALERTAS -->
+      <div class="fix-card" style="border-left:3px solid #22c55e">
+        <div class="fix-card-header">
+          <div class="fix-badge" style="background:rgba(34,197,94,0.12);color:#4ade80;border:1px solid rgba(34,197,94,0.25)">
+            <i class="fas fa-check-circle"></i> Corrigido no Lovable
+          </div>
+          <h3 class="fix-title">AlertCenter — 7 tipos de alerta ativos ✅</h3>
+          <p class="fix-desc">Diagnóstico completo feito. Causa raiz encontrada: os alertas de <strong>estoque baixo</strong> e <strong>previsão de ruptura</strong> liam <code>products.estoque_atual</code> (campo legado, sempre zerado). O saldo real vive nos <strong>lotes</strong>. As queries foram corrigidas para usar <code>v_estoque_por_unidade</code>. O alerta de cardápio incompleto não existia — foi criado do zero.</p>
+          <div class="fix-impact" style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.15)">
+            <i class="fas fa-table" style="color:#4ade80"></i>
+            <div style="width:100%">
+              <strong style="color:#4ade80;display:block;margin-bottom:10px">Status final — 7 tipos ativos:</strong>
+              <div class="alert-diagnosis-table">
+                <div class="adt-row adt-header">
+                  <span>Tipo</span><span>Fonte de dados</span><span>Status</span>
+                </div>
+                <div class="adt-row">
+                  <span><i class="fas fa-boxes" style="color:#ef4444"></i> Estoque baixo</span>
+                  <span><code>v_estoque_por_unidade</code> (saldo real por lote)</span>
+                  <span class="adt-fixed">✅ Corrigido</span>
+                </div>
+                <div class="adt-row">
+                  <span><i class="fas fa-calendar-times" style="color:#fbbf24"></i> Validade próxima</span>
+                  <span><code>lotes</code> — validade ≤ hoje + 7 dias</span>
+                  <span class="adt-ok">✅ Já funcionava</span>
+                </div>
+                <div class="adt-row">
+                  <span><i class="fas fa-clipboard-list" style="color:#fbbf24"></i> Pedidos pendentes</span>
+                  <span><code>internal_orders</code> + <code>purchase_orders</code></span>
+                  <span class="adt-fixed">✅ Ampliado</span>
+                </div>
+                <div class="adt-row">
+                  <span><i class="fas fa-calendar-week" style="color:#ef4444"></i> Cardápio incompleto</span>
+                  <span><code>menus</code> × dias úteis × cozinhas</span>
+                  <span class="adt-new">🆕 Criado</span>
+                </div>
+                <div class="adt-row">
+                  <span><i class="fas fa-chart-line" style="color:#fbbf24"></i> Margem/Prejuízo</span>
+                  <span><code>meal_cost_daily</code> — margem &lt; 5%</span>
+                  <span class="adt-ok">✅ Já funcionava</span>
+                </div>
+                <div class="adt-row">
+                  <span><i class="fas fa-exclamation-triangle" style="color:#ef4444"></i> Previsão de ruptura</span>
+                  <span><code>v_estoque_por_unidade</code> + consumo 30d</span>
+                  <span class="adt-fixed">✅ Corrigido</span>
+                </div>
+                <div class="adt-row">
+                  <span><i class="fas fa-weight" style="color:#94a3b8"></i> Divergência de peso</span>
+                  <span><code>weight_divergence_logs</code> — últimas 48h</span>
+                  <span class="adt-ok">✅ Já funcionava</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fix-prompt-wrap">
+          <div class="fix-prompt-label" style="color:#4ade80"><i class="fas fa-tasks"></i> Como validar — o que fazer para ver os alertas aparecerem</div>
+          <div class="fix-checklist">
+            <div class="fix-check-item">
+              <span class="fix-check-num">1</span>
+              <div>
+                <strong>Estoque baixo</strong> — editar 1 produto no Estoque, definir estoque mínimo = 10, deixar saldo abaixo de 10
+                <span class="fix-check-sub">O alerta deve aparecer imediatamente no Painel CEO</span>
+              </div>
+            </div>
+            <div class="fix-check-item">
+              <span class="fix-check-num">2</span>
+              <div>
+                <strong>Cardápio incompleto</strong> — deixar 2 dias da semana atual sem cardápio na tela Cardápio Semanal
+                <span class="fix-check-sub">Alerta mostrará: "Seg, Qua" (por exemplo) sem cardápio nesta semana</span>
+              </div>
+            </div>
+            <div class="fix-check-item">
+              <span class="fix-check-num">3</span>
+              <div>
+                <strong>Pedidos pendentes</strong> — gerar 1 pedido pelo Planejamento de Insumos e NÃO aprovar
+                <span class="fix-check-sub">Agora cobre tanto pedidos internos quanto pedidos de compra (compras externas)</span>
+              </div>
+            </div>
+            <div class="fix-check-item">
+              <span class="fix-check-num">4</span>
+              <div>
+                <strong>Validade próxima</strong> — já funciona se tiver lote com validade nos próximos 7 dias
+                <span class="fix-check-sub">Era o único funcionando antes — continua ativo</span>
+              </div>
+            </div>
+          </div>
+          <div class="fix-note" style="margin-top:14px">
+            <i class="fas fa-lightbulb"></i>
+            <span>Alertas só aparecem quando há <strong>dados reais</strong> que atendam a condição. Se nenhum produto tem estoque mínimo definido, o alerta de estoque baixo não dispara — isso é comportamento correto, não bug.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FIX 3: NF-e PDF -->
+      <div class="fix-card fix-warning">
+        <div class="fix-card-header">
+          <div class="fix-badge fix-badge-warning">
+            <i class="fas fa-file-pdf"></i> Funcionalidade perdida
+          </div>
+          <h3 class="fix-title">Recebimento — importação de NF-e em PDF sumiu</h3>
+          <p class="fix-desc">Antes era possível importar a nota fiscal em PDF além do XML. Após o refinamento visual do módulo de Recebimento, apenas o XML permaneceu. O PDF é mais usado no dia a dia — a maioria dos fornecedores envia por WhatsApp.</p>
+          <div class="fix-impact">
+            <i class="fas fa-link"></i>
+            <span><strong>Impacto:</strong> O estoquista não consegue processar notas que chegam em PDF. Precisa digitar manualmente ou esperar o XML — o que não é realista na operação.</span>
+          </div>
+        </div>
+        <div class="fix-prompt-wrap">
+          <div class="fix-prompt-label"><i class="fas fa-copy"></i> Prompt para o Lovable</div>
+          <div class="prompt-box" id="fixNFePDF">Quero reativar a importação de NF-e em PDF no módulo de Recebimento Digital do Yassuo.
+
+Contexto:
+- Antes existia a opção de importar NF-e em PDF, além do XML
+- Após o refinamento visual do Recebimento, só o XML ficou disponível
+- O PDF precisa voltar — é o formato mais usado pelos fornecedores no dia a dia
+
+Como implementar:
+
+Opção recomendada (mais estável para produção):
+- Upload do PDF → sistema tenta extrair dados via OCR (tesseract.js ou biblioteca equivalente)
+- Se o OCR funcionar: preencher os campos automaticamente para o usuário confirmar
+- Se o OCR não conseguir ler: mostrar mensagem clara "Não foi possível ler automaticamente" + formulário para preenchimento manual
+
+UX esperada:
+- Dois botões na área de importação: "Importar XML" e "Importar PDF"
+- Ao selecionar PDF: tela de upload → progresso de leitura → campos preenchidos ou formulário manual
+- Mensagem de estado clara em cada etapa
+- Empty state se nenhum arquivo for selecionado
+
+Campos que precisam ser extraídos (ou preenchidos manualmente):
+- CNPJ do fornecedor
+- Número da nota (NF-e)
+- Data de emissão
+- Itens: nome do produto, quantidade, unidade, valor unitário
+- Valor total da nota
+
+Regras:
+- Não alterar nada do fluxo XML que já funciona
+- Não alterar nada visual além do botão de PDF
+- Manter dark premium, vermelho Yassuo, ícones Lucide
+- Priorizar estabilidade — se o OCR for arriscado, pode ser apenas upload + preenchimento manual assistido
+
+Entregável:
+Recebimento com ambas as opções (XML e PDF) funcionando, sem regressão do XML existente.</div>
+          <button class="btn-copy btn-copy-fix" onclick="copyPrompt('fixNFePDF')"><i class="fas fa-copy"></i> Copiar prompt</button>
+        </div>
+      </div>
+
+      <!-- FIX 4: ENTRADA DE ESTOQUE MANUAL -->
+      <div class="fix-card fix-info">
+        <div class="fix-card-header">
+          <div class="fix-badge fix-badge-info">
+            <i class="fas fa-boxes"></i> Gap operacional
+          </div>
+          <h3 class="fix-title">Estoque — entrada manual para popular o estoque inicial</h3>
+          <p class="fix-desc">O fluxo correto é: receber produto via Recebimento Digital → lote criado automaticamente. Mas para a demo e para o onboarding inicial, precisar simular 15–20 recebimentos é inviável. Precisa de um atalho para entrada manual de estoque.</p>
+          <div class="fix-impact">
+            <i class="fas fa-link"></i>
+            <span><strong>Impacto:</strong> Sem estoque populado, o FEFO não funciona, os KPIs ficam zerados e o Planejamento de Insumos não mostra cobertura. A demo fica vazia.</span>
+          </div>
+        </div>
+        <div class="fix-prompt-wrap">
+          <div class="fix-prompt-label"><i class="fas fa-copy"></i> Prompt para o Lovable</div>
+          <div class="prompt-box" id="fixEstoqueManual">Preciso de uma forma de entrada manual de estoque no Yassuo para popular o estoque inicial sem precisar simular recebimentos reais.
+
+Contexto:
+- O fluxo correto de entrada é via Recebimento Digital (escanear código → registrar lote)
+- Para demo e onboarding, precisaria simular 15-20 recebimentos, o que é inviável
+- Preciso de um atalho para cadastrar lotes manualmente direto no Estoque
+
+O que quero:
+Adicionar um botão "Entrada manual" no módulo de Estoque que permita:
+1. Selecionar o produto (busca por nome)
+2. Informar quantidade recebida
+3. Informar data de validade do lote
+4. Informar código do lote (opcional — gerar automaticamente se vazio)
+5. Informar fornecedor (opcional neste fluxo)
+6. Confirmar — o lote é criado no Supabase igual ao fluxo de Recebimento
+
+UX:
+- Botão "Entrada manual" ou "Adicionar lote" na tela de Estoque, visível mas secundário (não substituir o scanner)
+- Dialog ou bottom sheet com os campos acima
+- Mensagem de confirmação após salvar
+- O lote criado aparece imediatamente na lista FEFO do produto
+
+Regras:
+- Não alterar o fluxo de Recebimento Digital
+- Manter rastreabilidade: lotes criados manualmente ter flag "entrada_manual: true" no banco
+- Identidade visual: dark premium, vermelho Yassuo, sem emojis, Lucide
+- Disponível somente para perfis: CEO, Estoquista, Comprador
+
+Entregável:
+Funcionalidade de entrada manual de lote no Estoque, integrada ao Supabase, sem afetar o Recebimento Digital.</div>
+          <button class="btn-copy btn-copy-fix" onclick="copyPrompt('fixEstoqueManual')"><i class="fas fa-copy"></i> Copiar prompt</button>
+        </div>
+      </div>
+
+      <!-- FIX 5: FATOR DE CORREÇÃO -->
+      <div class="fix-card fix-info">
+        <div class="fix-card-header">
+          <div class="fix-badge fix-badge-info">
+            <i class="fas fa-question-circle"></i> UX / Usabilidade
+          </div>
+          <h3 class="fix-title">Fichas técnicas — campo "fator de correção" sem explicação</h3>
+          <p class="fix-desc">O fator de correção é um campo técnico da nutrição que a maioria das pessoas não conhece. Na ficha técnica de cada prato, esse campo aparece sem tooltip ou explicação — a nutricionista não sabe o que colocar.</p>
+          <div class="fix-impact">
+            <i class="fas fa-link"></i>
+            <span><strong>Impacto:</strong> Campo preenchido errado = custo calculado errado = KPI do Painel CEO errado. É um erro silencioso que afeta toda a cadeia de dados.</span>
+          </div>
+        </div>
+        <div class="fix-prompt-wrap">
+          <div class="fix-prompt-label"><i class="fas fa-copy"></i> Prompt para o Lovable</div>
+          <div class="prompt-box" id="fixFatorCorrecao">Preciso melhorar a usabilidade do campo "Fator de Correção" nas fichas técnicas de pratos do Yassuo.
+
+Problema:
+O campo aparece na ficha técnica mas sem nenhuma explicação do que é ou como calcular. A nutricionista não sabe o que colocar, deixa em branco ou coloca 1 por padrão — o que pode gerar erro no custo calculado.
+
+O que quero:
+
+1. Adicionar um tooltip (ícone de interrogação ao lado do campo) com a explicação:
+"O Fator de Correção (FC) indica quanto do alimento bruto é aproveitável. 
+Exemplo: 1 kg de frango bruto → 0,72 kg limpo → FC = 1,38 (1 ÷ 0,72).
+Se você não sabe o FC, use 1.0 como padrão — significa que 100% do ingrediente é aproveitado."
+
+2. Adicionar exemplos práticos como placeholder ou hint abaixo do campo:
+- Frango peito: 1.38
+- Feijão cru: 1.00
+- Cebola: 1.10
+- Cenoura: 1.14
+- Arroz cru: 1.00
+
+3. Se o campo estiver vazio ao salvar, preencher automaticamente com 1.0 e mostrar aviso:
+"Fator de correção não informado. Usando 1.0 (100% aproveitável). Atualize se souber o valor correto."
+
+Regras:
+- Não alterar a lógica de cálculo existente
+- Não alterar nada visual além do tooltip e hint
+- Manter identidade Yassuo (dark premium, Lucide, sem emojis)
+
+Entregável:
+Campo "Fator de Correção" com tooltip explicativo, exemplos e fallback automático para 1.0.</div>
+          <button class="btn-copy btn-copy-fix" onclick="copyPrompt('fixFatorCorrecao')"><i class="fas fa-copy"></i> Copiar prompt</button>
+        </div>
+      </div>
+
+      <!-- FIX 6: SENHAS DE PERFIS -->
+      <div class="fix-card fix-info">
+        <div class="fix-card-header">
+          <div class="fix-badge fix-badge-info">
+            <i class="fas fa-key"></i> Acesso / Testes
+          </div>
+          <h3 class="fix-title">Senhas dos perfis — só a senha do CEO funciona</h3>
+          <p class="fix-desc">Os outros usuários (Nutricionista, Estoquista, Comprador, etc.) foram criados no app mas não têm senha definida. O Supabase cria o usuário mas a senha precisa ser definida manualmente. Veja como resolver sem precisar do Lovable.</p>
+          <div class="fix-impact">
+            <i class="fas fa-link"></i>
+            <span><strong>Impacto:</strong> Não dá para testar o app com outros perfis. A demo fica restrita a uma visão só (CEO) — impossível mostrar controle de acesso por perfil.</span>
+          </div>
+        </div>
+        <div class="fix-prompt-wrap">
+          <div class="fix-prompt-label"><i class="fas fa-terminal"></i> Solução via Supabase (sem Lovable)</div>
+          <div class="prompt-box" id="fixSenhas">-- ================================================
+-- PASSO 1: Abrir Supabase → SQL Editor
+-- Cole e execute UMA VEZ para cada perfil
+-- Troque o e-mail e a senha conforme necessário
+-- ================================================
+
+-- CEO (provavelmente já funciona)
+SELECT auth.update_user(
+  (SELECT id FROM auth.users WHERE email = 'ceo@yassuo.com'),
+  jsonb_build_object('password', 'Yassuo@CEO2025')
+);
+
+-- Nutricionista
+SELECT auth.update_user(
+  (SELECT id FROM auth.users WHERE email = 'nutri@yassuo.com'),
+  jsonb_build_object('password', 'Yassuo@Nutri25')
+);
+
+-- Estoquista
+SELECT auth.update_user(
+  (SELECT id FROM auth.users WHERE email = 'estoque@yassuo.com'),
+  jsonb_build_object('password', 'Yassuo@Stock25')
+);
+
+-- Comprador / CD
+SELECT auth.update_user(
+  (SELECT id FROM auth.users WHERE email = 'compras@yassuo.com'),
+  jsonb_build_object('password', 'Yassuo@Buy2025')
+);
+
+-- Financeiro
+SELECT auth.update_user(
+  (SELECT id FROM auth.users WHERE email = 'financeiro@yassuo.com'),
+  jsonb_build_object('password', 'Yassuo@Fin2025')
+);
+
+-- Cozinheiro / Operador
+SELECT auth.update_user(
+  (SELECT id FROM auth.users WHERE email = 'cozinha@yassuo.com'),
+  jsonb_build_object('password', 'Yassuo@Cook25')
+);
+
+-- Auditor / Visitante
+SELECT auth.update_user(
+  (SELECT id FROM auth.users WHERE email = 'auditor@yassuo.com'),
+  jsonb_build_object('password', 'Yassuo@View25')
+);
+
+-- ================================================
+-- DICA: Se não souber o e-mail exato de cada usuário,
+-- primeiro consulte com:
+-- SELECT email, created_at FROM auth.users ORDER BY created_at;
+-- ================================================</div>
+          <button class="btn-copy btn-copy-fix" onclick="copyPrompt('fixSenhas')"><i class="fas fa-copy"></i> Copiar SQL completo</button>
+          <div class="fix-note">
+            <i class="fas fa-lightbulb"></i>
+            <span>Se não souber os e-mails cadastrados, rode primeiro: <code>SELECT email FROM auth.users ORDER BY created_at;</code> no SQL Editor do Supabase para ver a lista completa.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEQUÊNCIA RECOMENDADA -->
+      <div class="fix-sequence">
+        <div class="fix-seq-title"><i class="fas fa-sort-amount-down"></i> Sequência recomendada de correção</div>
+        <div class="fix-seq-steps">
+          <div class="fix-seq-step" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.2)">
+            <span class="fix-seq-num" style="background:#22c55e"><i class="fas fa-check"></i></span>
+            <div class="fix-seq-text" style="color:#4ade80"><strong>Fornecedores</strong> — tela criada ✅ · Cadastrar 3 fornecedores de demo</div>
+          </div>
+          <div class="fix-seq-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="fix-seq-step" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.2)">
+            <span class="fix-seq-num" style="background:#22c55e"><i class="fas fa-check"></i></span>
+            <div class="fix-seq-text" style="color:#4ade80"><strong>Alertas</strong> — 7 tipos corrigidos ✅ · Validar com dados reais</div>
+          </div>
+          <div class="fix-seq-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="fix-seq-step">
+            <span class="fix-seq-num" style="background:#ef4444">1</span>
+            <div class="fix-seq-text"><strong>Senhas</strong> — via SQL no Supabase (5 minutos, sem Lovable)</div>
+          </div>
+          <div class="fix-seq-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="fix-seq-step">
+            <span class="fix-seq-num" style="background:#f97316">3</span>
+            <div class="fix-seq-text"><strong>Entrada manual de estoque</strong> — popular o banco antes da demo</div>
+          </div>
+          <div class="fix-seq-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="fix-seq-step">
+            <span class="fix-seq-num" style="background:#fbbf24">4</span>
+            <div class="fix-seq-text"><strong>NF-e PDF</strong> — reativar importação por PDF no Recebimento</div>
+          </div>
+          <div class="fix-seq-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="fix-seq-step">
+            <span class="fix-seq-num" style="background:#fbbf24">5</span>
+            <div class="fix-seq-text"><strong>Fator de correção</strong> — tooltip e fallback na ficha técnica</div>
+          </div>
+          <div class="fix-seq-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="fix-seq-step" style="background:rgba(34,197,94,0.07);border-color:rgba(34,197,94,0.2)">
+            <span class="fix-seq-num" style="background:#22c55e"><i class="fas fa-flag-checkered"></i></span>
+            <div class="fix-seq-text" style="color:#4ade80"><strong>App pronto para demo real</strong></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== PERFIS & SENHAS VIEW ===== -->
+    <section class="view" id="view-perfis">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow" style="color:#ef4444">Yassuo · Testes</p>
+          <h1 class="page-title">Perfis &amp; Senhas</h1>
+          <p class="page-subtitle">Como acessar todos os perfis · Guia passo a passo · Supabase</p>
+        </div>
+      </div>
+
+      <!-- DIAGNÓSTICO ALERTAS -->
+      <div class="onb-alert" style="background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.3)">
+        <i class="fas fa-bell" style="color:#fbbf24;margin-top:2px;flex-shrink:0"></i>
+        <div>
+          <strong style="color:#fbbf24">Sobre os alertas que sumiram:</strong> O AlertCenter do Painel CEO mostra somente alertas com <strong>dados reais cadastrados</strong>. Se só aparece o alerta de validade, é porque os outros tipos ainda não têm dados no banco. Veja o diagnóstico completo abaixo — e o prompt pronto para corrigir caso seja bug de código.
+        </div>
+      </div>
+
+      <div class="section-title-row" style="margin-top:1.5rem">
+        <h2 class="section-title"><i class="fas fa-stethoscope" style="color:#fbbf24;margin-right:8px"></i>Por que só aparece alerta de validade?</h2>
+      </div>
+
+      <div class="frentes-list">
+        <div class="frente-item" style="border-left:3px solid #22c55e">
+          <div class="frente-priority" style="background:rgba(34,197,94,0.15);color:#4ade80;font-size:11px">OK</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-check-circle" style="color:#22c55e"></i> Alerta de validade aparece</h4>
+            <p class="frente-desc">Você tem pelo menos 1 lote com vencimento próximo. Dado existe, alerta funciona. Correto.</p>
+          </div>
+        </div>
+        <div class="frente-item frente-alta">
+          <div class="frente-priority">Falta dado</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-exclamation-triangle" style="color:#ef4444"></i> Estoque baixo não aparece</h4>
+            <p class="frente-desc">Para ativar: um produto precisa ter saldo <strong>abaixo do mínimo configurado</strong>. Se nenhum produto tem mínimo definido, o alerta nunca dispara.</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Ação: Estoque → editar 1 produto → definir estoque mínimo → baixar saldo abaixo desse valor</div>
+          </div>
+        </div>
+        <div class="frente-item frente-alta">
+          <div class="frente-priority">Falta dado</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-calendar-week" style="color:#ef4444"></i> Cardápio incompleto não aparece</h4>
+            <p class="frente-desc">Para ativar: precisa haver dias da semana atual <strong>sem cardápio planejado</strong>. Se o cardápio está completo ou não existe nenhum, o alerta fica inativo.</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Ação: deixar propositalmente 2 dias sem cardápio na semana atual</div>
+          </div>
+        </div>
+        <div class="frente-item frente-alta">
+          <div class="frente-priority">Falta dado</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-clipboard-list" style="color:#ef4444"></i> Pedidos pendentes não aparece</h4>
+            <p class="frente-desc">Para ativar: precisa ter pedidos no status <strong>aguardando aprovação</strong>. Se não há pedidos criados, o alerta não existe.</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Ação: gerar 1 pedido pelo Planejamento de Insumos e não aprovar — o alerta vai aparecer imediatamente</div>
+          </div>
+        </div>
+        <div class="frente-item frente-media">
+          <div class="frente-priority frente-priority-media">Verificar</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-code-branch" style="color:#fbbf24"></i> Se tinha alertas antes e sumiram → pode ser bug</h4>
+            <p class="frente-desc">Se você lembra de ver vários alertas e depois da revisão geral eles sumiram, pode ser que as queries foram alteradas. Use o prompt abaixo para restaurar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROMPT ALERTAS -->
+      <div class="prompt-card" style="margin-top:1.5rem">
+        <div class="prompt-card-header">
+          <div class="prompt-order order-active"><i class="fas fa-bell"></i></div>
+          <div class="prompt-meta">
+            <h3 class="prompt-title">Diagnóstico AlertCenter — restaurar todos os tipos de alerta</h3>
+            <span class="prompt-status status-active">Copiar e colar no Lovable</span>
+          </div>
+          <button class="btn-copy" onclick="copyPrompt('promptAlertas')"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <div class="prompt-context">Use se os alertas do Painel CEO pararam de aparecer ou estão faltando tipos que existiam antes.</div>
+        <div class="prompt-box" id="promptAlertas">Preciso que você inspecione o componente AlertCenter (ou equivalente) do Painel CEO do Yassuo.
+
+Sintoma: antes apareciam vários tipos de alerta (estoque baixo, validade próxima, cardápio incompleto, pedidos pendentes de aprovação). Agora só aparece o de validade.
+
+Quero que você:
+1. Abra o componente de alertas do Painel CEO
+2. Liste os tipos de alerta que deveriam aparecer (ex: estoque_baixo, validade, cardapio_incompleto, pedido_pendente)
+3. Para cada tipo, mostre qual query Supabase está sendo executada
+4. Verifique se alguma query foi desativada, comentada ou está com condição errada
+5. Se encontrar o problema, corrija apenas as queries — não altere nada visual
+6. Confirme quais tipos de alerta estão ativos após a correção
+
+Não quero redesign. Quero somente restaurar a lógica de alertas que existia antes.
+Identidade visual: manter dark premium, vermelho Yassuo — não alterar.</div>
+      </div>
+
+      <!-- SEÇÃO SENHAS -->
+      <div class="section-title-row" style="margin-top:2.5rem">
+        <h2 class="section-title"><i class="fas fa-users" style="color:#ef4444;margin-right:8px"></i>Os 7 perfis do Yassuo</h2>
+      </div>
+
+      <div class="profiles-grid">
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background:linear-gradient(135deg,#ef4444,#b91c1c)"><i class="fas fa-crown"></i></div>
+            <div>
+              <h4 class="profile-name">CEO / Dono</h4>
+              <span class="profile-role-badge" style="background:rgba(239,68,68,0.15);color:#ef4444">Super Admin</span>
+            </div>
+          </div>
+          <p class="profile-desc">Acessa tudo. Vê KPIs financeiros, custo real da refeição, radar, alertas críticos. Painel CEO exclusivo.</p>
+          <div class="profile-sees"><i class="fas fa-eye"></i> Painel CEO, todos os módulos, relatórios financeiros, gestão de usuários</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background:linear-gradient(135deg,#a855f7,#7c3aed)"><i class="fas fa-apple-alt"></i></div>
+            <div>
+              <h4 class="profile-name">Nutricionista</h4>
+              <span class="profile-role-badge" style="background:rgba(168,85,247,0.15);color:#a855f7">Nutri</span>
+            </div>
+          </div>
+          <p class="profile-desc">Comanda o módulo Nutri. Cria cardápios, cadastra pratos, fichas técnicas, planeja insumos.</p>
+          <div class="profile-sees"><i class="fas fa-eye"></i> Cardápio, Painel Nutri, Pratos, Insumos, Pedido Interno — custo estimado (sem financeiro)</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)"><i class="fas fa-warehouse"></i></div>
+            <div>
+              <h4 class="profile-name">Estoquista</h4>
+              <span class="profile-role-badge" style="background:rgba(59,130,246,0.15);color:#3b82f6">Estoque</span>
+            </div>
+          </div>
+          <p class="profile-desc">Gerencia entrada e saída de produtos. Confere recebimentos, registra lotes, controla FEFO.</p>
+          <div class="profile-sees"><i class="fas fa-eye"></i> Estoque, Recebimento Digital, Pedidos (conferência) — sem acesso financeiro</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background:linear-gradient(135deg,#f97316,#c2410c)"><i class="fas fa-shopping-cart"></i></div>
+            <div>
+              <h4 class="profile-name">Comprador / CD</h4>
+              <span class="profile-role-badge" style="background:rgba(249,115,22,0.15);color:#f97316">Compras</span>
+            </div>
+          </div>
+          <p class="profile-desc">Aprova pedidos, gerencia fornecedores e centraliza as compras da operação.</p>
+          <div class="profile-sees"><i class="fas fa-eye"></i> Pedidos (aprovação), Fornecedores, Compras CD — acesso a valores de pedido</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background:linear-gradient(135deg,#22c55e,#15803d)"><i class="fas fa-chart-bar"></i></div>
+            <div>
+              <h4 class="profile-name">Financeiro</h4>
+              <span class="profile-role-badge" style="background:rgba(34,197,94,0.15);color:#22c55e">Finance</span>
+            </div>
+          </div>
+          <p class="profile-desc">Acessa dados financeiros completos: custo por refeição, desperdício em R$, relatórios de compra.</p>
+          <div class="profile-sees"><i class="fas fa-eye"></i> KPIs financeiros, custo real, desperdício R$, relatórios — sem módulo operacional</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background:linear-gradient(135deg,#fbbf24,#d97706)"><i class="fas fa-utensils"></i></div>
+            <div>
+              <h4 class="profile-name">Cozinheiro / Operador</h4>
+              <span class="profile-role-badge" style="background:rgba(251,191,36,0.15);color:#fbbf24">Operação</span>
+            </div>
+          </div>
+          <p class="profile-desc">Consulta cardápio do dia, registra desperdício, usa pedido interno. Acesso operacional mínimo.</p>
+          <div class="profile-sees"><i class="fas fa-eye"></i> Cardápio (consulta), Desperdício (registro), Pedido Interno — sem dados financeiros</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background:linear-gradient(135deg,#64748b,#334155)"><i class="fas fa-eye"></i></div>
+            <div>
+              <h4 class="profile-name">Auditor / Visitante</h4>
+              <span class="profile-role-badge" style="background:rgba(100,116,139,0.15);color:#94a3b8">Read-only</span>
+            </div>
+          </div>
+          <p class="profile-desc">Somente leitura. Para apresentações e auditorias externas. Nenhuma ação de escrita.</p>
+          <div class="profile-sees"><i class="fas fa-eye"></i> Todos os módulos em modo visualização — sem criar, editar ou excluir</div>
+        </div>
+      </div>
+
+      <!-- COMO TROCAR SENHAS -->
+      <div class="section-title-row" style="margin-top:2.5rem">
+        <h2 class="section-title"><i class="fas fa-key" style="color:#ef4444;margin-right:8px"></i>Como trocar senha de cada perfil</h2>
+      </div>
+
+      <div class="onb-alert" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.3);margin-bottom:1.5rem">
+        <i class="fas fa-info-circle" style="color:#60a5fa;flex-shrink:0;margin-top:2px"></i>
+        <div style="color:#bfdbfe">
+          <strong style="color:#93c5fd">Por que só a sua senha funciona?</strong> Usuários criados no app têm e-mail registrado no Supabase Auth, mas <strong>não têm senha definida</strong> — eles precisam de um link de convite ou de redefinição. Use um dos dois métodos abaixo para resolver isso.
+        </div>
+      </div>
+
+      <div class="onb-phase">
+        <div class="onb-phase-header">
+          <div class="onb-phase-num" style="background:#ef4444">1</div>
+          <div>
+            <h3 class="onb-phase-title">Método Supabase Dashboard — mais fácil</h3>
+            <p class="onb-phase-sub">Funciona quando o e-mail do usuário existe de verdade (você consegue receber o e-mail).</p>
+          </div>
+        </div>
+        <div class="onb-items">
+          <div class="onb-item">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div class="password-step"><span class="pwd-step-num">1</span><div class="pwd-step-text">Acesse <strong>supabase.com</strong> → faça login → abra o projeto do Yassuo</div></div>
+              <div class="password-step"><span class="pwd-step-num">2</span><div class="pwd-step-text">Menu lateral → <strong>Authentication</strong> → <strong>Users</strong></div></div>
+              <div class="password-step"><span class="pwd-step-num">3</span><div class="pwd-step-text">Localize o usuário na lista → clique nos <strong>3 pontinhos (···)</strong> ao lado</div></div>
+              <div class="password-step"><span class="pwd-step-num">4</span><div class="pwd-step-text">Clique em <strong>"Send password recovery"</strong> → o Supabase envia link de redefinição por e-mail</div></div>
+              <div class="password-step"><span class="pwd-step-num">5</span><div class="pwd-step-text">Abra o e-mail recebido → clique no link → defina a nova senha</div></div>
+            </div>
+            <div class="onb-tip onb-tip-red" style="margin-top:12px"><i class="fas fa-exclamation-triangle"></i> Se o e-mail é fictício (ex: <code>nutri@yassuo.com</code>) e você não tem acesso a ele, use o Método 2.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="onb-phase" style="border-color:rgba(249,115,22,0.2);margin-top:1rem">
+        <div class="onb-phase-header">
+          <div class="onb-phase-num" style="background:#f97316">2</div>
+          <div>
+            <h3 class="onb-phase-title">Método SQL direto — para e-mails fictícios</h3>
+            <p class="onb-phase-sub">Define a senha diretamente no banco, sem precisar de e-mail real.</p>
+          </div>
+        </div>
+        <div class="onb-items">
+          <div class="onb-item">
+            <p style="color:var(--text-secondary);font-size:13px;margin-bottom:10px">No Supabase → <strong>SQL Editor</strong> → cole e execute (uma vez para cada usuário):</p>
+            <div class="sql-block" id="sqlSenha">-- Troca a senha de um usuário específico
+-- Substitua o e-mail e a nova senha desejada
+SELECT auth.update_user(
+  (SELECT id FROM auth.users WHERE email = 'nutri@yassuo.com'),
+  jsonb_build_object('password', 'Yassuo@2025')
+);</div>
+            <button class="btn-copy" style="margin-top:10px" onclick="copyPrompt('sqlSenha')"><i class="fas fa-copy"></i> Copiar SQL</button>
+            <div class="onb-tip" style="margin-top:12px"><i class="fas fa-lightbulb"></i> Troque <code>nutri@yassuo.com</code> pelo e-mail real do usuário e <code>Yassuo@2025</code> pela senha desejada. Execute uma vez para cada perfil.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABELA DE SENHAS -->
+      <div class="section-title-row" style="margin-top:2rem">
+        <h2 class="section-title"><i class="fas fa-lock" style="color:#ef4444;margin-right:8px"></i>Senhas sugeridas para testes</h2>
+      </div>
+
+      <div class="passwords-table">
+        <div class="pwd-table-header">
+          <span>Perfil</span>
+          <span>E-mail sugerido</span>
+          <span>Senha para testes</span>
+          <span>Nível</span>
+        </div>
+        <div class="pwd-row">
+          <span class="pwd-profile"><i class="fas fa-crown" style="color:#ef4444"></i> CEO</span>
+          <code class="pwd-email">ceo@yassuo.com</code>
+          <code class="pwd-pass">Yassuo@CEO2025</code>
+          <span class="pwd-perm perm-full">Total</span>
+        </div>
+        <div class="pwd-row">
+          <span class="pwd-profile"><i class="fas fa-apple-alt" style="color:#a855f7"></i> Nutricionista</span>
+          <code class="pwd-email">nutri@yassuo.com</code>
+          <code class="pwd-pass">Yassuo@Nutri25</code>
+          <span class="pwd-perm perm-mid">Nutri</span>
+        </div>
+        <div class="pwd-row">
+          <span class="pwd-profile"><i class="fas fa-warehouse" style="color:#3b82f6"></i> Estoquista</span>
+          <code class="pwd-email">estoque@yassuo.com</code>
+          <code class="pwd-pass">Yassuo@Stock25</code>
+          <span class="pwd-perm perm-mid">Estoque</span>
+        </div>
+        <div class="pwd-row">
+          <span class="pwd-profile"><i class="fas fa-shopping-cart" style="color:#f97316"></i> Comprador</span>
+          <code class="pwd-email">compras@yassuo.com</code>
+          <code class="pwd-pass">Yassuo@Buy2025</code>
+          <span class="pwd-perm perm-mid">Compras</span>
+        </div>
+        <div class="pwd-row">
+          <span class="pwd-profile"><i class="fas fa-chart-bar" style="color:#22c55e"></i> Financeiro</span>
+          <code class="pwd-email">financeiro@yassuo.com</code>
+          <code class="pwd-pass">Yassuo@Fin2025</code>
+          <span class="pwd-perm perm-mid">Finance</span>
+        </div>
+        <div class="pwd-row">
+          <span class="pwd-profile"><i class="fas fa-utensils" style="color:#fbbf24"></i> Cozinheiro</span>
+          <code class="pwd-email">cozinha@yassuo.com</code>
+          <code class="pwd-pass">Yassuo@Cook25</code>
+          <span class="pwd-perm perm-low">Operação</span>
+        </div>
+        <div class="pwd-row">
+          <span class="pwd-profile"><i class="fas fa-eye" style="color:#94a3b8"></i> Auditor</span>
+          <code class="pwd-email">auditor@yassuo.com</code>
+          <code class="pwd-pass">Yassuo@View25</code>
+          <span class="pwd-perm perm-low">Read-only</span>
+        </div>
+      </div>
+
+      <!-- PROMPT NF-e PDF -->
+      <div class="section-title-row" style="margin-top:2.5rem">
+        <h2 class="section-title"><i class="fas fa-file-pdf" style="color:#ef4444;margin-right:8px"></i>Recebimento: reativar importação de NF-e em PDF</h2>
+      </div>
+
+      <div class="onb-alert" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.3);margin-bottom:1.5rem">
+        <i class="fas fa-exclamation-triangle" style="color:#f87171;flex-shrink:0;margin-top:2px"></i>
+        <div>
+          <strong style="color:#f87171">Atenção:</strong> A importação de NF-e em PDF foi removida ou perdida durante o refinamento do Recebimento. O XML continua funcionando, mas o PDF é mais usado por fornecedores no dia a dia. Veja a análise e o prompt abaixo.
+        </div>
+      </div>
+
+      <div class="frentes-list">
+        <div class="frente-item" style="border-left:3px solid #22c55e">
+          <div class="frente-priority" style="background:rgba(34,197,94,0.15);color:#4ade80;font-size:11px">XML ✓</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-file-code" style="color:#22c55e"></i> Importar NF-e via XML</h4>
+            <p class="frente-desc">Método técnico mais preciso. O XML da NF-e contém todos os dados estruturados: CNPJ, itens, quantidades, valores, lotes. Leitura automática sem necessidade de OCR.</p>
+            <div class="frente-next" style="color:#4ade80"><i class="fas fa-check"></i> Funcionando — manter como método principal</div>
+          </div>
+        </div>
+        <div class="frente-item frente-alta">
+          <div class="frente-priority">Perdido</div>
+          <div class="frente-body">
+            <h4 class="frente-name"><i class="fas fa-file-pdf" style="color:#ef4444"></i> Importar NF-e via PDF</h4>
+            <p class="frente-desc">Método prático. Muitos fornecedores enviam só o PDF por WhatsApp ou e-mail. Precisa de OCR (leitura de texto no PDF) para extrair os dados — é mais trabalhoso de implementar que o XML, mas essencial para o dia a dia real.</p>
+            <div class="frente-next"><i class="fas fa-arrow-right"></i> Reativar com OCR básico ou upload + preenchimento manual assistido</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-card" style="margin-top:1.5rem">
+        <div class="prompt-card-header">
+          <div class="prompt-order order-active"><i class="fas fa-file-pdf"></i></div>
+          <div class="prompt-meta">
+            <h3 class="prompt-title">Recebimento — reativar importação de NF-e em PDF</h3>
+            <span class="prompt-status status-active">Copiar e colar no Lovable</span>
+          </div>
+          <button class="btn-copy" onclick="copyPrompt('promptNFePDF')"><i class="fas fa-copy"></i> Copiar</button>
+        </div>
+        <div class="prompt-context">Use este prompt para restaurar (ou implementar corretamente) a importação de NF-e em PDF no módulo de Recebimento.</div>
+        <div class="prompt-box" id="promptNFePDF">Quero reativar a importação de NF-e em PDF no módulo de Recebimento Digital do Yassuo.
+
+Contexto:
+- Antes existia a opção de importar NF-e em PDF, além do XML
+- Após o refinamento visual, só o XML ficou disponível
+- Preciso reativar o PDF como opção de importação
+
+Como implementar:
+1. Manter o XML como método principal (mais preciso, já funciona)
+2. Reativar o botão/opção "Importar PDF" no componente NFeImport (ou equivalente)
+3. Para o PDF, usar a abordagem mais viável entre:
+   a) OCR via biblioteca JavaScript (tesseract.js) para tentar extrair dados automaticamente
+   b) Upload do PDF + formulário pré-preenchido para o usuário confirmar/corrigir os dados manualmente
+4. Se a opção b for mais estável para produção, prefiro ela — confiabilidade é mais importante que automação neste momento
+
+UX esperada:
+- Dois botões na tela de importação: "Importar XML" e "Importar PDF"
+- Ao selecionar PDF: upload do arquivo → exibir os campos extraídos (ou formulário para preencher) → confirmar
+- Mensagem clara se o OCR não conseguir ler: "Não foi possível ler automaticamente. Preencha os dados manualmente."
+- Empty state elegante caso nenhum arquivo seja selecionado
+
+Identidade visual:
+- Manter dark premium, vermelho Yassuo
+- Sem emojis, ícones Lucide
+- Consistência total com o design system já aplicado no app
+
+Entregável:
+Recebimento com ambas as opções (XML e PDF) funcionando, sem regressão da lógica de XML já existente.</div>
+      </div>
+
+    </section>
+
+    <!-- ===== PROMPTS VIEW ===== -->
+    <section class="view" id="view-prompts">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow" style="color:#ef4444">Lovable · Yassuo</p>
+          <h1 class="page-title">Prompts Prontos</h1>
+          <p class="page-subtitle">Copie e cole direto no Lovable · Um módulo de cada vez</p>
+        </div>
+      </div>
+
+      <!-- INSTRUÇÃO -->  
+      <div class="prompt-instruction">
+        <i class="fas fa-info-circle"></i>
+        <div>
+          <strong>Como usar:</strong> Cole cada prompt no Lovable na ordem indicada. Espere o resultado antes de avançar para o próximo. Valide visualmente em mobile a cada rodada.
+        </div>
+      </div>
+
+      <!-- PROMPTS LIST -->
+      <div class="prompts-list">
+
+        <!-- PROMPT 1 -->
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-order order-pending" style="position:relative"><i class="fas fa-check" style="color:#4ade80;font-size:12px"></i></div>
+            <div class="prompt-meta">
+              <h3 class="prompt-title">Nutri · Painel da Nutri / Dashboard</h3>
+              <span class="prompt-status status-active" style="background:rgba(34,197,94,0.12);color:#4ade80">✓ Concluído</span>
+            </div>
+            <button class="btn-copy" onclick="copyPrompt('prompt1')">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="prompt-context">Use depois de validar o Cardápio Semanal. O objetivo é transformar o Painel da Nutri em centro de ação, não painel passivo com KPIs zerados.</div>
+          <div class="prompt-box" id="prompt1">Quero redesenhar o Painel da Nutri / Dashboard da Cozinha para que ele funcione como um centro de ação real, não um painel passivo com KPIs zerados.
+
+Direção obrigatória:
+- manter identidade Yassuo: dark premium, vermelho institucional, grafite/preto, off-white
+- consistência total com o design system já aplicado no app
+- linguagem operacional, corporativa, elegante
+
+O painel deve priorizar:
+- cardápios pendentes de publicação nesta semana
+- pratos sem ficha técnica cadastrada
+- insumos críticos ou abaixo do mínimo
+- pedidos internos aguardando envio
+- alertas operacionais relevantes
+- sugestão de ação prioritária do dia ("o que resolver agora")
+
+Menos:
+- KPIs estáticos zerados sem contexto
+- blocos decorativos sem dado real
+- sensação de painel vazio
+
+Mais:
+- ações claras com CTA
+- hierarquia forte entre crítico e informativo
+- microcopy orientada a benefício
+- cards com estado (resolvido / pendente / atenção)
+
+Empty state do painel:
+Se não houver dados ainda, mostrar orientação inteligente:
+"Monte o cardápio da semana para começar a monitorar a operação daqui."
+
+Identidade visual:
+- vermelho Yassuo para ações críticas e CTAs principais
+- âmbar para alertas moderados
+- verde para estados saudáveis
+- cards dark com profundidade sutil
+- sem emojis, usar ícones Lucide premium
+
+Entregável:
+nova experiência do Painel da Nutri com hierarquia de prioridade, centro de ação e consistência com o design system do Yassuo.</div>
+        </div>
+
+        <!-- PROMPT 2 -->
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-order order-pending" style="position:relative"><i class="fas fa-check" style="color:#4ade80;font-size:12px"></i></div>
+            <div class="prompt-meta">
+              <h3 class="prompt-title">Nutri · Pratos (Biblioteca de Pratos)</h3>
+              <span class="prompt-status status-active" style="background:rgba(34,197,94,0.12);color:#4ade80">✓ Concluído</span>
+            </div>
+            <button class="btn-copy" onclick="copyPrompt('prompt2')">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="prompt-context">Transforma a lista fria de pratos em uma biblioteca viva, com cards ricos e ações rápidas.</div>
+          <div class="prompt-box" id="prompt2">Quero redesenhar a tela de Pratos para que ela deixe de parecer uma lista administrativa fria e passe a funcionar como uma biblioteca viva de pratos da operação.
+
+Direção obrigatória:
+- manter identidade Yassuo: dark premium, vermelho institucional
+- consistência com o design system já aplicado
+- visual mais rico e operacionalmente útil
+
+Cada prato deve aparecer como um card com:
+- nome do prato
+- categoria (com ícone Lucide, sem emoji)
+- rendimento estimado
+- custo estimado por porção
+- status da ficha técnica (cadastrada / pendente / incompleta)
+- data do último uso no cardápio
+- badge de tags relevantes
+
+Ações rápidas por card:
+- adicionar ao cardápio semanal
+- editar ficha técnica
+- duplicar prato
+- arquivar
+
+Filtros no topo:
+- por categoria
+- por status da ficha técnica
+- por uso recente
+
+Empty state premium:
+- ícone Lucide elegante
+- título: "Sua biblioteca de pratos está vazia"
+- microcopy: "Cadastre o primeiro prato para começar a construir sua base técnica e montar cardápios com mais agilidade."
+- CTA: "Criar primeiro prato"
+
+Identidade visual:
+- cards dark com hover sutil
+- badge de status colorido: verde (ficha completa), âmbar (pendente), vermelho (incompleta)
+- tipografia forte, hierarquia clara nome > categoria > dados
+- sem emojis, usar ícones Lucide
+
+Entregável:
+nova tela de Pratos com visualização em cards, filtros e ações rápidas, consistente com o design system do Yassuo.</div>
+        </div>
+
+        <!-- PROMPT 3 -->
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-order order-pending"><i class="fas fa-check" style="color:#4ade80;font-size:12px"></i></div>
+            <div class="prompt-meta">
+              <h3 class="prompt-title">Nutri · Planejamento de Insumos</h3>
+              <span class="prompt-status" style="background:rgba(34,197,94,0.12);color:#4ade80">✓ Concluído</span>
+            </div>
+            <button class="btn-copy" onclick="copyPrompt('prompt3')">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="prompt-context">Torna o Planejamento de Insumos uma consequência inteligente do cardápio, não uma tela isolada.</div>
+          <div class="prompt-box" id="prompt3">Quero redesenhar a tela de Planejamento de Insumos para que ela pareça uma consequência inteligente do cardápio semanal, não uma tela vazia e isolada.
+
+Direção obrigatória:
+- manter identidade Yassuo: dark premium, vermelho institucional
+- consistência com design system já aplicado
+- linguagem operacional clara
+
+A tela deve mostrar com clareza:
+- total de ingredientes previstos para a semana
+- itens que já estão cobertos pelo estoque atual
+- itens que precisam entrar em compra ou pedido
+- itens críticos (abaixo do mínimo ou zerados)
+- agrupamento por categoria de insumo
+
+Respostas visuais por item:
+- verde: coberto pelo estoque
+- âmbar: atenção, estoque parcial
+- vermelho: crítico, precisa comprar
+
+Ações disponíveis:
+- gerar pedido interno com 1 clique a partir dos itens em falta
+- exportar previsão
+
+Empty state premium:
+- ícone Lucide elegante
+- título: "Nenhuma previsão gerada ainda"
+- microcopy: "Monte o cardápio semanal para gerar automaticamente a previsão de insumos. O planejamento nasce do cardápio."
+- CTA: "Ir para Cardápio Semanal"
+
+Identidade visual:
+- cards por categoria com indicadores de status
+- lista densa mas legível, hierarquia clara
+- botão de geração de pedido em vermelho Yassuo
+- sem emojis, ícones Lucide
+
+Entregável:
+nova tela de Planejamento de Insumos como tela-consequência inteligente do cardápio, com cobertura de estoque visual e ação de compra.</div>
+        </div>
+
+        <!-- PROMPT 4 -->
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-order order-pending"><i class="fas fa-check" style="color:#4ade80;font-size:12px"></i></div>
+            <div class="prompt-meta">
+              <h3 class="prompt-title">Nutri · Pedido Interno</h3>
+              <span class="prompt-status" style="background:rgba(34,197,94,0.12);color:#4ade80">✓ Concluído</span>
+            </div>
+            <button class="btn-copy" onclick="copyPrompt('prompt4')">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="prompt-context">Transforma o formulário frio de pedido em uma experiência de montagem de pedido operacional, como um carrinho corporativo.</div>
+          <div class="prompt-box" id="prompt4">Quero redesenhar a tela de Pedido Interno para que ela deixe de parecer um formulário isolado e passe a ter cara de montagem de pedido operacional.
+
+Direção obrigatória:
+- manter identidade Yassuo: dark premium, vermelho institucional
+- consistência com design system já aplicado
+- linguagem operacional, clara, eficiente
+
+A experiência deve parecer um carrinho corporativo:
+- busca/autocomplete rápido para adicionar itens
+- visualização clara dos itens adicionados como cards
+- quantidade, unidade e observação por item
+- agrupamento por categoria
+- total de itens e resumo sempre visível
+- sugestão automática de itens a partir da previsão de insumos (quando disponível)
+- badge "gerado a partir do cardápio da semana" quando aplicável
+
+CTA principal:
+- botão "Enviar Pedido" em vermelho Yassuo, bem visível, com contagem de itens
+- desabilitado visualmente (não só por lógica) quando vazio
+
+Empty state premium:
+- ícone Lucide elegante de carrinho/caixa
+- título: "Nenhum item adicionado ainda"
+- microcopy: "Adicione itens manualmente ou gere o pedido automaticamente a partir da previsão de insumos da semana."
+- CTA: "Ver previsão de insumos"
+
+Identidade visual:
+- cards de item dark com ações inline (editar quantidade, remover)
+- separação visual entre categorias
+- resumo flutuante ou fixo no rodapé
+- sem emojis, ícones Lucide
+
+Entregável:
+nova tela de Pedido Interno com experiência de montagem de pedido operacional, fluida e consistente com o design system do Yassuo.</div>
+        </div>
+
+        <!-- PROMPT 5 -->
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-order order-pending"><i class="fas fa-check" style="color:#4ade80;font-size:12px"></i></div>
+            <div class="prompt-meta">
+              <h3 class="prompt-title">Nutri · Desperdício</h3>
+              <span class="prompt-status" style="background:rgba(34,197,94,0.12);color:#4ade80">✓ Concluído</span>
+            </div>
+            <button class="btn-copy" onclick="copyPrompt('prompt5')">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="prompt-context">Transforma a tabela fria de desperdício em uma tela de insight operacional com valor percebido real.</div>
+          <div class="prompt-box" id="prompt5">Quero redesenhar a tela de Desperdício para que ela deixe de parecer uma tabela vazia e passe a gerar percepção de inteligência operacional.
+
+Direção obrigatória:
+- manter identidade Yassuo: dark premium, vermelho institucional
+- consistência com design system já aplicado
+- linguagem de insight, não de auditoria
+
+Quando houver dados, a tela deve destacar:
+- total descartado no período (kg e valor estimado)
+- tendência da semana (melhorando, estável, piorando)
+- categorias com maior perda
+- prato com maior recorrência de desperdício
+- alertas de recorrência ("este item aparece pela 3ª semana consecutiva")
+- impacto financeiro estimado do desperdício
+
+Visualização:
+- KPI principal: total descartado no período
+- gráfico simples de tendência (linha ou barra por semana)
+- lista de top itens desperdiçados com badge de criticidade
+- alerta de recorrência em destaque
+
+Empty state premium:
+- ícone Lucide elegante
+- título: "Nenhum desperdício registrado ainda"
+- microcopy: "Quando a operação começar a registrar perdas aqui, você verá padrões, tendências e oportunidades reais de redução de custo."
+- CTA: "Registrar primeira perda"
+
+Identidade visual:
+- KPI em destaque com cor contextual (verde = baixo, âmbar = atenção, vermelho = crítico)
+- cards de insight com hierarquia clara
+- alerta de recorrência em vermelho Yassuo
+- sem emojis, ícones Lucide
+
+Entregável:
+nova tela de Desperdício com leitura de insight operacional, tendência visual e alertas de recorrência, consistente com o design system do Yassuo.</div>
+        </div>
+
+        <!-- PROMPT 6 -->
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-order order-pending"><i class="fas fa-check" style="color:#4ade80;font-size:12px"></i></div>
+            <div class="prompt-meta">
+              <h3 class="prompt-title">Estoque · Visão Geral</h3>
+              <span class="prompt-status" style="background:rgba(34,197,94,0.12);color:#4ade80">✓ Concluído</span>
+            </div>
+            <button class="btn-copy" onclick="copyPrompt('prompt6')">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="prompt-context">Refina o módulo de Estoque mantendo FEFO em destaque e elevando a clareza operacional.</div>
+          <div class="prompt-box" id="prompt6">Quero refinar o módulo de Estoque para que ele tenha consistência visual com o design system já aplicado no Yassuo e eleve a clareza operacional.
+
+Direção obrigatória:
+- manter identidade Yassuo: dark premium, vermelho institucional
+- consistência total com o design system do app
+- FEFO como conceito central e visível
+
+O módulo deve mostrar com clareza:
+- visão geral do estoque com status por item
+- itens abaixo do mínimo em destaque
+- itens próximos ao vencimento (alerta de validade)
+- lotes ativos com data de entrada e validade
+- indicação de FEFO por item (qual lote usar primeiro)
+- movimentações recentes
+
+KPIs do topo:
+- total de itens cadastrados
+- itens críticos (abaixo do mínimo)
+- itens com validade próxima (até 7 dias)
+- itens zerados
+
+Alerta de prioridade:
+- destaque visual forte para itens em estado crítico
+- badge vermelho para vencimento iminente
+- badge âmbar para estoque baixo
+
+Empty state premium:
+- ícone Lucide elegante
+- título: "Estoque ainda não cadastrado"
+- microcopy: "Cadastre os primeiros itens para começar a controlar entrada, saída, lotes e validades pela lógica FEFO."
+
+Identidade visual:
+- cards por item ou linha de lista densa com ações inline
+- hierarquia clara: nome > quantidade > validade > lote
+- vermelho Yassuo para críticos, âmbar para atenção, verde para saudável
+- sem emojis, ícones Lucide
+
+Entregável:
+Estoque refinado visualmente com FEFO em destaque, alertas claros e consistência com o design system do Yassuo.</div>
+        </div>
+
+        <!-- PROMPT 7 -->
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-order order-active">7</div>
+            <div class="prompt-meta">
+              <h3 class="prompt-title">Pedidos · Gestão de Compras</h3>
+              <span class="prompt-status status-active">🎯 Próximo a enviar</span>
+            </div>
+            <button class="btn-copy" onclick="copyPrompt('prompt7')">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="prompt-context">Refina o módulo de Pedidos com foco em fluxo de aprovação claro e status visual forte.</div>
+          <div class="prompt-box" id="prompt7">Quero refinar o módulo de Pedidos para que ele tenha consistência visual com o design system do Yassuo e um fluxo de aprovação mais claro e operacional.
+
+Direção obrigatória:
+- manter identidade Yassuo: dark premium, vermelho institucional
+- consistência total com o design system do app
+- foco em clareza de status e ação
+
+O módulo deve mostrar:
+- lista de pedidos com status bem visível: rascunho / enviado / aprovado / em entrega / recebido / cancelado
+- data de criação e previsão de entrega
+- total de itens e valor estimado
+- responsável pelo pedido
+- origem do pedido (manual / gerado por cardápio)
+
+Ações por pedido:
+- visualizar detalhes
+- aprovar (se pendente)
+- editar (se rascunho)
+- cancelar
+- ver histórico
+
+KPIs do topo:
+- pedidos pendentes de aprovação
+- pedidos em andamento
+- pedidos entregues no mês
+
+Empty state premium:
+- ícone Lucide elegante
+- título: "Nenhum pedido criado ainda"
+- microcopy: "Crie um pedido manualmente ou gere automaticamente a partir do planejamento de insumos da semana."
+- CTA: "Criar pedido" e "Ver planejamento de insumos"
+
+Identidade visual:
+- badge de status colorido por estado do pedido
+- cards ou linhas de lista com ações inline
+- filtros por status e período
+- vermelho Yassuo para pendentes de aprovação
+- sem emojis, ícones Lucide
+
+Entregável:
+módulo de Pedidos refinado com fluxo de status claro, ações inline e consistência com o design system do Yassuo.</div>
+        </div>
+
+        <!-- PROMPT 8 -->
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-order order-pending"><i class="fas fa-check" style="color:#4ade80;font-size:12px"></i></div>
+            <div class="prompt-meta">
+              <h3 class="prompt-title">Recebimento · Digital com Barcode</h3>
+              <span class="prompt-status" style="background:rgba(34,197,94,0.12);color:#4ade80">✓ Concluído</span>
+            </div>
+            <button class="btn-copy" onclick="copyPrompt('prompt8')">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="prompt-context">Refina o Recebimento Digital com foco na experiência mobile de conferência com código de barras.</div>
+          <div class="prompt-box" id="prompt8">Quero refinar o módulo de Recebimento Digital para que ele seja mais fluido, mais claro e mais agradável de usar especialmente no celular, mantendo a consistência com o design system do Yassuo.
+
+Direção obrigatória:
+- manter identidade Yassuo: dark premium, vermelho institucional
+- consistência total com o design system do app
+- foco em experiência mobile-first para conferência em campo
+
+O módulo deve oferecer:
+- visão de recebimentos pendentes e recentes
+- fluxo de conferência item a item
+- leitura de código de barras fluida
+- comparação entre pedido x recebido (quantidade, peso, validade, lote)
+- marcação de divergências com campo de observação
+- confirmação de recebimento com assinatura ou PIN
+- histórico de recebimentos
+
+Experiência mobile:
+- botão grande de leitura de barcode sempre acessível
+- cada item aparece como card expansível
+- status por item: não conferido / ok / divergência
+- progresso da conferência visível no topo (ex: 8/15 itens conferidos)
+
+Empty state premium:
+- ícone Lucide elegante
+- título: "Nenhum recebimento pendente"
+- microcopy: "Quando um pedido for aprovado e entrar em entrega, ele aparecerá aqui para conferência."
+
+Identidade visual:
+- progresso da conferência em vermelho Yassuo
+- badge de status por item: verde (ok), âmbar (divergência parcial), vermelho (divergência crítica)
+- botão de barcode em destaque absoluto no mobile
+- sem emojis, ícones Lucide
+
+Entregável:
+Recebimento Digital refinado com foco mobile-first, fluxo de conferência claro e consistência com o design system do Yassuo.</div>
+        </div>
+
+        <!-- PROMPT FINAL -->
+        <div class="prompt-card prompt-card-final">
+          <div class="prompt-card-header">
+            <div class="prompt-order order-final"><i class="fas fa-flag-checkered"></i></div>
+            <div class="prompt-meta">
+              <h3 class="prompt-title">Coerência Final · Revisão Geral do App</h3>
+              <span class="prompt-status" style="background:rgba(249,115,22,0.15);color:#fb923c">🏆 Enviar agora</span>
+            </div>
+            <button class="btn-copy" onclick="copyPrompt('promptFinal')">
+              <i class="fas fa-copy"></i> Copiar
+            </button>
+          </div>
+          <div class="prompt-context">Envie este prompt no final de tudo para revisar inconsistências visuais e garantir que o app inteiro está coerente antes da apresentação.</div>
+          <div class="prompt-box" id="promptFinal">Quero fazer uma revisão geral de coerência visual do Yassuo depois de todos os módulos terem sido refinados individualmente.
+
+Objetivo:
+Garantir que o app inteiro está visualmente consistente, com identidade unificada e sem módulos destoantes antes da apresentação ao investidor/cliente.
+
+O que revisar:
+- consistência de tipografia em todos os módulos (tamanho, peso, hierarquia)
+- consistência de cores (vermelho Yassuo como identidade, âmbar para alertas, verde para saudável)
+- consistência de cards (border-radius, sombra, hover, estado ativo)
+- consistência de ícones (todos Lucide, sem emojis)
+- consistência de empty states (mesmo padrão de ícone + título + microcopy + CTA)
+- consistência de botões (mesmo estilo de CTA primário em todos os módulos)
+- consistência da navegação (sidebar, bottom nav, breadcrumb, header)
+- consistência de spacing e padding entre seções
+- verificar se algum módulo ainda parece "mais antigo" ou "destoante" da direção geral
+
+Se encontrar inconsistências:
+- listar os módulos com problema
+- aplicar correção alinhando ao padrão já estabelecido
+- não criar nova direção, só harmonizar com o que já existe
+
+Direção final obrigatória:
+- dark premium forte
+- vermelho Yassuo como assinatura visual do sistema
+- sensação de plataforma coesa, profissional, premium e confiável
+- app que transmite: "isso foi feito com intenção"
+
+Entregável:
+relatório de inconsistências encontradas + correções aplicadas + confirmação de que o app está pronto para apresentação.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== DEMO ROTEIRO VIEW ===== -->
+    <section class="view" id="view-demo">
+      <div class="page-header">
+        <div>
+          <p class="page-eyebrow" style="color:#ef4444">Yassuo · Apresentação</p>
+          <h1 class="page-title">Roteiro de Demo</h1>
+          <p class="page-subtitle">5 minutos · Script guiado · Pronto para o investidor</p>
+        </div>
+        <button class="btn-primary" onclick="navigateTo('onboarding')">
+          <i class="fas fa-rocket"></i> Checklist de Setup
+        </button>
+      </div>
+
+      <!-- AVISO PRÉ-DEMO -->
+      <div class="onb-alert" style="border-color:#22c55e;background:rgba(34,197,94,0.06)">
+        <i class="fas fa-check-circle" style="color:#22c55e"></i>
+        <div>
+          <strong style="color:#22c55e">Antes de começar:</strong> Certifique-se de que o checklist em <em>Ativar o App</em> está completo. Sem dados reais, a demo não impressiona.
+        </div>
+      </div>
+
+      <!-- LINHA DO TEMPO DA DEMO -->
+      <div class="section-title-row" style="margin-top:2rem">
+        <h2 class="section-title">Script de 5 minutos</h2>
+        <span class="section-tag">Fala sugerida incluída</span>
+      </div>
+
+      <div class="demo-timeline">
+
+        <!-- CENA 1 -->
+        <div class="demo-scene">
+          <div class="demo-scene-marker">
+            <div class="demo-scene-num">1</div>
+            <div class="demo-scene-line"></div>
+          </div>
+          <div class="demo-scene-body">
+            <div class="demo-scene-header">
+              <div class="demo-scene-meta">
+                <span class="demo-scene-title">Abertura — O problema que o Yassuo resolve</span>
+                <span class="demo-scene-time"><i class="fas fa-clock"></i> 30 seg</span>
+              </div>
+              <span class="demo-scene-screen">Tela: Painel CEO</span>
+            </div>
+            <div class="demo-fala">
+              <div class="demo-fala-label"><i class="fas fa-microphone"></i> Fala sugerida</div>
+              <p class="demo-fala-text">"Gestão de cozinha industrial hoje é planilha, WhatsApp e achismo. O Yassuo centraliza tudo — cardápio, estoque, custo, pedidos e desperdício — numa plataforma que qualquer gestor entende em segundos."</p>
+            </div>
+            <div class="demo-actions">
+              <div class="demo-action-item"><i class="fas fa-mouse-pointer"></i> Abra o app e mostre o Painel CEO com os KPIs acesos</div>
+              <div class="demo-action-item"><i class="fas fa-eye"></i> Destaque: total de refeições, custo por prato e alertas ativos</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENA 2 -->
+        <div class="demo-scene">
+          <div class="demo-scene-marker">
+            <div class="demo-scene-num">2</div>
+            <div class="demo-scene-line"></div>
+          </div>
+          <div class="demo-scene-body">
+            <div class="demo-scene-header">
+              <div class="demo-scene-meta">
+                <span class="demo-scene-title">O cérebro da operação — Painel da Nutri</span>
+                <span class="demo-scene-time"><i class="fas fa-clock"></i> 1 min</span>
+              </div>
+              <span class="demo-scene-screen">Tela: Painel da Nutri</span>
+            </div>
+            <div class="demo-fala">
+              <div class="demo-fala-label"><i class="fas fa-microphone"></i> Fala sugerida</div>
+              <p class="demo-fala-text">"Aqui está o centro de comando da nutricionista. Ela vê de relance o que está planejado, o que está faltando e o que precisa de ação imediata — sem abrir planilha nenhuma."</p>
+            </div>
+            <div class="demo-actions">
+              <div class="demo-action-item"><i class="fas fa-mouse-pointer"></i> Navegue para Nutri → Painel</div>
+              <div class="demo-action-item"><i class="fas fa-eye"></i> Mostre os KPIs: semana planejada, pedidos pendentes, estoque baixo</div>
+              <div class="demo-action-item"><i class="fas fa-mouse-pointer"></i> Clique em um alerta para mostrar o roteamento automático</div>
+            </div>
+            <div class="demo-highlight">
+              <i class="fas fa-star"></i>
+              <span><strong>Momento WOW:</strong> clicar no alerta de estoque baixo e ele navegar direto para o item no estoque. Mostra inteligência do sistema.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENA 3 -->
+        <div class="demo-scene">
+          <div class="demo-scene-marker">
+            <div class="demo-scene-num">3</div>
+            <div class="demo-scene-line"></div>
+          </div>
+          <div class="demo-scene-body">
+            <div class="demo-scene-header">
+              <div class="demo-scene-meta">
+                <span class="demo-scene-title">Da refeição ao pedido — em 3 telas</span>
+                <span class="demo-scene-time"><i class="fas fa-clock"></i> 1 min 30 seg</span>
+              </div>
+              <span class="demo-scene-screen">Telas: Cardápio → Insumos → Pedido</span>
+            </div>
+            <div class="demo-fala">
+              <div class="demo-fala-label"><i class="fas fa-microphone"></i> Fala sugerida</div>
+              <p class="demo-fala-text">"O cardápio da semana está montado. O sistema automaticamente calcula o que precisa ser comprado — por produto, por quantidade, com o que já tem no estoque descontado. Um clique gera o pedido de compra."</p>
+            </div>
+            <div class="demo-actions">
+              <div class="demo-action-item"><i class="fas fa-mouse-pointer"></i> Abra Cardápio Semanal — mostre os dias planejados e os dias em aberto</div>
+              <div class="demo-action-item"><i class="fas fa-mouse-pointer"></i> Navegue para Planejamento de Insumos — mostre a barra de cobertura por item</div>
+              <div class="demo-action-item"><i class="fas fa-mouse-pointer"></i> Clique no botão vermelho <em>Gerar Pedido de Compra</em></div>
+              <div class="demo-action-item"><i class="fas fa-eye"></i> Mostre o pedido criado com os itens, quantidades e fornecedor vinculado</div>
+            </div>
+            <div class="demo-highlight">
+              <i class="fas fa-star"></i>
+              <span><strong>Momento WOW:</strong> o pedido sendo gerado automaticamente. Mostra que o sistema pensa junto com o operador.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENA 4 -->
+        <div class="demo-scene">
+          <div class="demo-scene-marker">
+            <div class="demo-scene-num">4</div>
+            <div class="demo-scene-line"></div>
+          </div>
+          <div class="demo-scene-body">
+            <div class="demo-scene-header">
+              <div class="demo-scene-meta">
+                <span class="demo-scene-title">Estoque inteligente — FEFO em ação</span>
+                <span class="demo-scene-time"><i class="fas fa-clock"></i> 1 min</span>
+              </div>
+              <span class="demo-scene-screen">Tela: Estoque</span>
+            </div>
+            <div class="demo-fala">
+              <div class="demo-fala-label"><i class="fas fa-microphone"></i> Fala sugerida</div>
+              <p class="demo-fala-text">"O estoque usa lógica FEFO — o primeiro a vencer é o primeiro a sair. Isso evita desperdício de alimento e multa sanitária. O sistema destaca automaticamente o que está crítico."</p>
+            </div>
+            <div class="demo-actions">
+              <div class="demo-action-item"><i class="fas fa-mouse-pointer"></i> Abra Estoque — mostre os 4 KPIs no topo (total, críticos, venc. próximo, zerados)</div>
+              <div class="demo-action-item"><i class="fas fa-eye"></i> Destaque o banner vermelho de ruptura (item abaixo do mínimo)</div>
+              <div class="demo-action-item"><i class="fas fa-eye"></i> Mostre o badge FEFO num item e explique: "é este lote que a cozinha deve usar primeiro"</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENA 5 -->
+        <div class="demo-scene">
+          <div class="demo-scene-marker">
+            <div class="demo-scene-num">5</div>
+            <div class="demo-scene-line-last"></div>
+          </div>
+          <div class="demo-scene-body">
+            <div class="demo-scene-header">
+              <div class="demo-scene-meta">
+                <span class="demo-scene-title">Fechamento — Visão do CEO e próximos passos</span>
+                <span class="demo-scene-time"><i class="fas fa-clock"></i> 30 seg</span>
+              </div>
+              <span class="demo-scene-screen">Tela: Painel CEO</span>
+            </div>
+            <div class="demo-fala">
+              <div class="demo-fala-label"><i class="fas fa-microphone"></i> Fala sugerida</div>
+              <p class="demo-fala-text">"O gestor abre o app e sabe exatamente o que está acontecendo na operação — custo, desperdício, alertas, sem depender de relatório semanal. Isso é gestão em tempo real."</p>
+            </div>
+            <div class="demo-actions">
+              <div class="demo-action-item"><i class="fas fa-mouse-pointer"></i> Volte ao Painel CEO</div>
+              <div class="demo-action-item"><i class="fas fa-eye"></i> Mostre o radar financeiro e o custo real da refeição</div>
+              <div class="demo-action-item"><i class="fas fa-comments"></i> Abra para perguntas — tenha os dados do modelo de negócio prontos</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- DADOS PARA TER NA PONTA DA LÍNGUA -->
+      <div class="section-title-row" style="margin-top:2.5rem">
+        <h2 class="section-title">Dados para ter na ponta da língua</h2>
+        <span class="section-tag">Se perguntarem</span>
+      </div>
+      <div class="demo-data-grid">
+        <div class="demo-data-card">
+          <i class="fas fa-users demo-data-icon"></i>
+          <span class="demo-data-label">Público-alvo</span>
+          <span class="demo-data-value">Cozinhas industriais com 50–500 refeições/dia</span>
+        </div>
+        <div class="demo-data-card">
+          <i class="fas fa-layer-group demo-data-icon"></i>
+          <span class="demo-data-label">Módulos entregues</span>
+          <span class="demo-data-value">11 módulos · Design system unificado · Multi-tenant</span>
+        </div>
+        <div class="demo-data-card">
+          <i class="fas fa-shield-alt demo-data-icon"></i>
+          <span class="demo-data-label">Tecnologia</span>
+          <span class="demo-data-value">Lovable + Supabase · RLS · FEFO · Multi-perfil</span>
+        </div>
+        <div class="demo-data-card">
+          <i class="fas fa-bullseye demo-data-icon"></i>
+          <span class="demo-data-label">Diferencial</span>
+          <span class="demo-data-value">Único app com FEFO + custo real + alerta inteligente para cozinhas industriais no Brasil</span>
+        </div>
+        <div class="demo-data-card">
+          <i class="fas fa-chart-line demo-data-icon"></i>
+          <span class="demo-data-label">Modelo de negócio</span>
+          <span class="demo-data-value">SaaS por unidade · MRR previsível · Expansão por rede</span>
+        </div>
+        <div class="demo-data-card">
+          <i class="fas fa-rocket demo-data-icon"></i>
+          <span class="demo-data-label">Status atual</span>
+          <span class="demo-data-value">MVP funcional · Pronto para piloto com cliente real</span>
+        </div>
+      </div>
+
+      <!-- DICAS DE APRESENTAÇÃO -->
+      <div class="onb-gaps" style="margin-top:2rem;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.05)">
+        <div class="onb-gaps-title" style="color:#818cf8"><i class="fas fa-lightbulb"></i> Dicas para a apresentação</div>
+        <div class="onb-gap-item">
+          <span class="onb-gap-num" style="background:rgba(99,102,241,0.2);color:#818cf8">★</span>
+          <div><strong>Não leia o roteiro em voz alta.</strong> Use-o como guia mental. A fala deve soar natural.</div>
+        </div>
+        <div class="onb-gap-item">
+          <span class="onb-gap-num" style="background:rgba(99,102,241,0.2);color:#818cf8">★</span>
+          <div><strong>Deixe o investidor tocar.</strong> No momento WOW da cena 3 (gerar pedido), dê o celular para ele clicar. Participação cria conexão.</div>
+        </div>
+        <div class="onb-gap-item">
+          <span class="onb-gap-num" style="background:rgba(99,102,241,0.2);color:#818cf8">★</span>
+          <div><strong>Se travar, volte ao Painel CEO.</strong> Ele resume tudo e é o visual mais forte do app.</div>
+        </div>
+        <div class="onb-gap-item">
+          <span class="onb-gap-num" style="background:rgba(99,102,241,0.2);color:#818cf8">★</span>
+          <div><strong>Termine com uma pergunta.</strong> "O que você quer ver com mais detalhe?" — isso mantém o investidor engajado e revela o que importa para ele.</div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
