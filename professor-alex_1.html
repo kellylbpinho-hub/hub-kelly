@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prof. Alex – Business English</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#0f0e17;color:#f0eeff;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#3a3755;border-radius:3px}
+#setup{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;padding:28px;gap:18px;text-align:center}
+.icon{width:64px;height:64px;border-radius:18px;background:#e8b86d;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:32px;color:#0f0e17;margin:0 auto}
+#setup h1{font-family:'DM Serif Display',serif;font-size:24px}
+#setup p{font-size:13px;color:#7c7a9a;max-width:340px;line-height:1.7}
+.free-badge{display:inline-block;background:#1e3a1e;border:1px solid #3a5a3a;color:#6ee7b7;font-size:11px;padding:3px 10px;border-radius:20px}
+.box{background:#1a1928;border-radius:14px;padding:18px;width:100%;max-width:380px;text-align:left}
+.box h3{font-size:11px;color:#6ee7b7;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+.box ol{padding-left:18px;color:#7c7a9a;font-size:13px;line-height:2.2}
+.box a{color:#6ee7b7;text-decoration:none;font-weight:600}
+#setup input{width:100%;max-width:380px;padding:13px 16px;background:#1a1928;border:1px solid #3a3755;border-radius:13px;color:#f0eeff;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+#setup input:focus{border-color:#6ee7b7}
+#setup button{width:100%;max-width:380px;padding:13px;background:#e8b86d;color:#0f0e17;border:none;border-radius:13px;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif}
+.note{font-size:11px;color:#4a4870;max-width:340px;line-height:1.6}
+#app{display:none;flex:1;overflow:hidden}
+.layout{display:flex;height:100vh}
+.sidebar{width:210px;background:#1a1928;padding:16px 13px;display:flex;flex-direction:column;gap:14px;border-right:1px solid #2e2b45;flex-shrink:0;overflow-y:auto}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-icon{width:35px;height:35px;border-radius:10px;background:#e8b86d;color:#0f0e17;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:17px;font-weight:bold;flex-shrink:0}
+.logo-title{font-family:'DM Serif Display',serif;font-size:14px}
+.logo-sub{font-size:10px;color:#7c7a9a;text-transform:uppercase;letter-spacing:1px}
+.sc{background:#221f35;border-radius:12px;padding:12px}
+.sl{font-size:10px;color:#7c7a9a;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.sb-badge{font-size:13px;font-weight:600;color:#f5d49a;margin-bottom:8px}
+.sbar{height:4px;background:#3a3755;border-radius:4px}
+.sfill{height:100%;width:55%;background:#e8b86d;border-radius:4px}
+.book-card{background:linear-gradient(135deg,#1e2a1e,#1a2818);border:1px solid #3a5a3a;border-radius:12px;padding:14px}
+.book-title{font-size:11px;font-weight:600;color:#6ee7b7;margin-bottom:8px}
+.book-desc{font-size:11px;color:#7c7a9a;line-height:1.7;margin-bottom:12px}
+.steps{display:flex;flex-direction:column;gap:7px}
+.step{display:flex;align-items:center;gap:7px;font-size:11px;color:#7c7a9a}
+.step-n{width:18px;height:18px;border-radius:50%;background:#3a5a3a;color:#6ee7b7;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.tc{background:linear-gradient(135deg,#2a2740,#1f1d30);border-radius:12px;padding:13px;border-left:3px solid #e8b86d}
+.tt{font-size:11px;color:#e8b86d;font-weight:600;margin-bottom:6px}
+.tx{font-size:11px;color:#7c7a9a;line-height:1.6}
+.tl{font-size:10px;color:#7c7a9a;text-transform:uppercase;letter-spacing:1px;margin-bottom:9px}
+.ti{font-size:11px;color:#7c7a9a;margin-bottom:6px}
+.rb{margin-top:auto;padding:7px;background:#221f35;border:1px solid #3a3755;border-radius:9px;color:#7c7a9a;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;width:100%}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:13px 20px;border-bottom:1px solid #2e2b45;background:#1a1928}
+.hl{display:flex;align-items:center;gap:7px}
+.hdot{width:7px;height:7px;border-radius:50%;background:#6ee7b7}
+.htxt{font-size:12px;color:#7c7a9a}
+.hright{font-size:11px;color:#e8b86d;font-weight:500}
+.chat{flex:1;overflow-y:auto;padding:20px 20px 10px;display:flex;flex-direction:column;gap:15px}
+.br{display:flex;gap:9px;align-items:flex-start}
+.ur{display:flex;gap:9px;align-items:flex-start;justify-content:flex-end}
+.av{width:32px;height:32px;border-radius:9px;background:#e8b86d;color:#0f0e17;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:14px;font-weight:bold;flex-shrink:0}
+.uav{width:32px;height:32px;border-radius:9px;background:#4f46e5;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0}
+.bb{background:#2a2740;border-radius:4px 15px 15px 15px;padding:12px 15px;max-width:76%;font-size:14px;line-height:1.75;color:#f0eeff}
+.ub{background:#e8b86d;border-radius:15px 4px 15px 15px;padding:10px 15px;max-width:66%;font-size:14px;line-height:1.6;color:#0f0e17;font-weight:500}
+.fp{background:rgba(0,0,0,.2);border-radius:7px;padding:3px 8px;font-size:11px;margin-bottom:6px;display:inline-block}
+.typ{display:flex;gap:5px;align-items:center;padding:3px 0}
+.dot{width:7px;height:7px;border-radius:50%;background:#e8b86d;display:inline-block;animation:bnc 1.2s infinite ease-in-out}
+@keyframes bnc{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+.pvbar{display:flex;align-items:center;gap:9px;padding:8px 20px;background:#1a2818;border-top:1px solid #3a5a3a}
+.pvn{font-size:12px;color:#f0eeff;font-weight:500;flex:1}
+.pvo{font-size:11px;color:#6ee7b7}
+.xb{background:none;border:none;color:#7c7a9a;cursor:pointer;font-size:14px}
+.ia{display:flex;gap:8px;padding:12px 20px;border-top:1px solid #2e2b45;background:#1a1928;align-items:flex-end}
+.atb{width:42px;height:42px;border-radius:12px;background:#221f35;border:1px solid #3a3755;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.atb:hover{border-color:#6ee7b7}
+textarea{flex:1;background:#221f35;border:1px solid #3a3755;border-radius:12px;padding:10px 13px;color:#f0eeff;font-size:14px;resize:none;outline:none;font-family:'DM Sans',sans-serif;line-height:1.6;transition:border-color .2s}
+textarea:focus{border-color:#e8b86d}
+.sndb{width:42px;height:42px;border-radius:12px;background:#e8b86d;color:#0f0e17;border:none;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sndb:disabled{opacity:.4;cursor:not-allowed}
+.hint{text-align:center;font-size:10px;color:#4a4870;padding-bottom:7px;background:#1a1928}
+@media(max-width:600px){.sidebar{display:none}.bb,.ub{max-width:88%}}
+</style>
+</head>
+<body>
+
+<div id="setup">
+  <div class="icon">A</div>
+  <h1>Prof. Alex</h1>
+  <div class="free-badge">✓ Gratuito — Google Gemini</div>
+  <p>Para ativar, você precisa de uma chave gratuita do Google AI Studio.</p>
+  <div class="box">
+    <h3>Como obter sua chave grátis</h3>
+    <ol>
+      <li>Acesse <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com/apikey</a></li>
+      <li>Entre com sua conta Google</li>
+      <li>Clique em <strong>Create API Key</strong></li>
+      <li>Copie e cole abaixo</li>
+    </ol>
+  </div>
+  <input type="password" id="api-input" placeholder="AIza..." />
+  <button onclick="saveKey()">Ativar Professor Alex — Grátis ✓</button>
+  <p class="note">Sua chave fica salva só no seu dispositivo. Sem custo para uso pessoal.</p>
+</div>
+
+<div id="app">
+<div class="layout">
+  <div class="sidebar">
+    <div class="logo">
+      <div class="logo-icon">A</div>
+      <div><div class="logo-title">Prof. Alex</div><div class="logo-sub">Business English</div></div>
+    </div>
+    <div class="sc">
+      <div class="sl">Seu nível</div>
+      <div class="sb-badge">Intermediário</div>
+      <div class="sbar"><div class="sfill"></div></div>
+    </div>
+    <div class="book-card">
+      <div class="book-title">📚 Seu livro</div>
+      <div class="book-desc">Tire foto de qualquer página e envie pelo 📎. O professor lê e cria exercícios!</div>
+      <div class="steps">
+        <div class="step"><span class="step-n">1</span>Foto da página</div>
+        <div class="step"><span class="step-n">2</span>Eu explico a lição</div>
+        <div class="step"><span class="step-n">3</span>Fazemos exercícios</div>
+      </div>
+    </div>
+    <div class="tc">
+      <div class="tt">💡 Dica de hoje</div>
+      <div class="tx">Use o método <strong>STAR</strong>: Situation, Task, Action, Result.</div>
+    </div>
+    <div>
+      <div class="tl">Posso te ajudar com</div>
+      <div class="ti">• Lições do seu livro</div>
+      <div class="ti">• Entrevista de emprego</div>
+      <div class="ti">• Vocabulário de vendas</div>
+      <div class="ti">• E-mails profissionais</div>
+      <div class="ti">• Apresentação pessoal</div>
+    </div>
+    <button class="rb" onclick="resetKey()">🔑 Trocar API Key</button>
+  </div>
+
+  <div class="main">
+    <div class="hdr">
+      <div class="hl"><div class="hdot"></div><span class="htxt">Sessão ativa</span></div>
+      <div class="hright">🎯 Philip Morris International</div>
+    </div>
+    <div class="chat" id="chat"></div>
+    <div class="pvbar" id="pvbar" style="display:none">
+      <span>📎</span><span class="pvn" id="pvn"></span>
+      <span class="pvo">pronto para enviar</span>
+      <button class="xb" onclick="removeFile()">✕</button>
+    </div>
+    <div class="ia">
+      <input type="file" id="fi" style="display:none" accept="image/*" onchange="handleFile(event)">
+      <button class="atb" onclick="document.getElementById('fi').click()" title="Foto do livro">📎</button>
+      <textarea id="mi" rows="2" placeholder="Write in English here... (Enter to send)" onkeydown="handleKey(event)"></textarea>
+      <button class="sndb" id="sb" onclick="send()">➤</button>
+    </div>
+    <div class="hint">📎 foto do livro • Enter para enviar • Shift+Enter nova linha</div>
+  </div>
+</div>
+</div>
+
+<script>
+const SYS=`You are Professor Alex, a warm but direct English teacher for Brazilian professionals. Student: Kelly Almeida, Belém PA, intermediate English, preparing for multinational interviews (Philip Morris International). Always respond IN ENGLISH first, then feedback IN PORTUGUESE. Correct mistakes honestly. When a book page is shared: summarize in Portuguese, explain grammar, create 3 exercises, wait for answers before correcting. Feedback format: ✅ O que foi bom / 🔧 Correções / 💡 Dica.`;
+
+let history=[],pf=null,key='';
+const W=`Hello, Kelly! 👋 I'm Professor Alex, your Business English teacher!\n\nEnvie uma foto de qualquer página do seu livro pelo 📎 e eu explico a lição em português, depois fazemos exercícios juntos!\n\nOu comece agora — me diga em inglês:\n\n"Tell me about yourself and your professional background."\n\nVamos crescer juntos! 😊`;
+
+function saveKey(){const k=document.getElementById('api-input').value.trim();if(!k){alert('Cole sua chave do Google AI Studio.');return;}localStorage.setItem('pak',k);key=k;go();}
+function resetKey(){if(!confirm('Trocar API Key?'))return;localStorage.removeItem('pak');location.reload();}
+function go(){document.getElementById('setup').style.display='none';document.getElementById('app').style.display='block';bot(W);}
+function fmt(t){return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>').replace(/\n/g,'<br>');}
+function bot(t){const c=document.getElementById('chat');const d=document.createElement('div');d.className='br';d.innerHTML=`<div class="av">A</div><div class="bb">${fmt(t)}</div>`;c.appendChild(d);scroll();}
+function user(t,f){const c=document.getElementById('chat');const d=document.createElement('div');d.className='ur';const p=f?`<div class="fp">📎 ${f}</div>`:'';d.innerHTML=`<div class="ub">${p}${fmt(t||'')}</div><div class="uav">K</div>`;c.appendChild(d);scroll();}
+function showTyping(){const c=document.getElementById('chat');const d=document.createElement('div');d.className='br';d.id='tr';d.innerHTML=`<div class="av">A</div><div class="bb"><div class="typ"><span class="dot" style="animation-delay:0s"></span><span class="dot" style="animation-delay:.2s"></span><span class="dot" style="animation-delay:.4s"></span></div></div>`;c.appendChild(d);scroll();}
+function hideTyping(){const t=document.getElementById('tr');if(t)t.remove();}
+function scroll(){const c=document.getElementById('chat');setTimeout(()=>c.scrollTop=c.scrollHeight,50);}
+function handleFile(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{pf={b64:r.result.split(',')[1],mt:f.type,name:f.name};document.getElementById('pvbar').style.display='flex';document.getElementById('pvn').textContent=f.name;document.getElementById('mi').placeholder='Mensagem opcional, ou envie direto...';};r.readAsDataURL(f);e.target.value='';}
+function removeFile(){pf=null;document.getElementById('pvbar').style.display='none';document.getElementById('mi').placeholder='Write in English here... (Enter to send)';}
+function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
+
+async function send(){
+  const mi=document.getElementById('mi');const t=mi.value.trim();
+  if(!t&&!pf)return;
+  document.getElementById('sb').disabled=true;
+  let parts=[];
+  if(pf){parts.push({inline_data:{mime_type:pf.mt,data:pf.b64}});parts.push({text:t||'Esta é uma página do meu livro de inglês. Leia a lição, explique em português e crie exercícios para eu praticar.'});}
+  else{parts=[{text:t}];}
+  user(t,pf?.name);
+  history.push({role:'user',parts:parts});
+  mi.value='';removeFile();showTyping();
+  try{
+    const msgs=history.map(m=>({role:m.role,parts:m.parts}));
+    const body={system_instruction:{parts:[{text:SYS}]},contents:msgs,generationConfig:{maxOutputTokens:1500,temperature:0.7}};
+    const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d=await r.json();
+    if(d.error)throw new Error(d.error.message);
+    const rep=d.candidates?.[0]?.content?.parts?.[0]?.text||'Sorry, try again.';
+    hideTyping();bot(rep);
+    history.push({role:'model',parts:[{text:rep}]});
+  }catch(e){hideTyping();bot('⚠️ Erro: '+(e.message||'Verifique sua API Key.'));}
+  document.getElementById('sb').disabled=false;
+}
+key=localStorage.getItem('pak')||'';
+if(key)go();
+</script>
+</body>
+</html>
